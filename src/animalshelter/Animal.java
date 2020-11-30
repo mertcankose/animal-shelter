@@ -2,7 +2,7 @@
 package animalshelter;
 
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private String type;
     private double age;
@@ -31,6 +31,8 @@ public class Animal {
         this.keeper = keeper;
         this.isSterilize = isSterilize;
     }
+    
+    public abstract void setHealth(double health);
     
     public double eat(){
         return this.hungerRatio;
@@ -99,9 +101,7 @@ public class Animal {
         return this.healthRatio;
     }
 
-    public void setHealth(String health) {
-        this.healthRatio = healthRatio;
-    }
+  
 
     public String getRegisterDate() {
         return registerDate;

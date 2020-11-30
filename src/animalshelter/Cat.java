@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package animalshelter;
 
-/**
- *
- * @author mertc
- */
-public class Cat {
+
+public class Cat extends Animal {
+
+    public Cat(String name, String type, double age, double length, double weight, String place, String gender, double healthRatio, String registerDate, double hungerRatio, String keeper, boolean isSterilize) {
+        super(name, type, age, length, weight, place, gender, healthRatio, registerDate, hungerRatio, keeper, isSterilize);
+    }
+
+    @Override
+    public void setHealth(double health) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
