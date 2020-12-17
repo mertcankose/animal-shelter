@@ -129,7 +129,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(255, 255, 0));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/home2.png"))); // NOI18N
-        jLabel4.setText("Home");
+        jLabel4.setText("HomeFf");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
