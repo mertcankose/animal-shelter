@@ -699,15 +699,7 @@ public class ShelterGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void githubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubMouseClicked
-        String internet_adresi = "https://github.com/mertcankose/Animal-Shelter";
-        Desktop d = Desktop.getDesktop();
-        try {
-            d.browse(new URI(internet_adresi));
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(WebPage.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(WebPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }//GEN-LAST:event_githubMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
