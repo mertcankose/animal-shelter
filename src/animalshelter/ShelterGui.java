@@ -347,7 +347,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel27.setText("Email2");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel28.setText("Password");
+        jLabel28.setText("Password2");
 
         jButton2.setText("LOGIN");
 
