@@ -468,8 +468,7 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addGap(124, 124, 124)
                         .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(93, 93, 93))
+                        .addComponent(jLabel5))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -497,8 +496,8 @@ public class ShelterGui extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(genderFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(79, 79, 79)
-                        .addComponent(addAnimalWarningMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(93, 93, 93))))
+                        .addComponent(addAnimalWarningMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -535,11 +534,13 @@ public class ShelterGui extends javax.swing.JFrame {
                             .addComponent(genderMale, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(genderFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel21)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sterilizeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sterilizeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel22)
@@ -626,6 +627,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        displayAnimalTable.setFont(new java.awt.Font("Yu Gothic UI", 0, 11)); // NOI18N
         displayAnimalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -932,9 +934,7 @@ public class ShelterGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void githubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubMouseClicked
-
         /*
-        
         String internet_adresi = "https://github.com/mertcankose/Animal-Shelter";
         Desktop d = Desktop.getDesktop();
         try {
@@ -971,10 +971,10 @@ public class ShelterGui extends javax.swing.JFrame {
     }//GEN-LAST:event_genderFemaleActionPerformed
 
     public void showpopup() {
-        String message = "Animal Added.\n";
+        String message = "ADDED !\n";
 
         for (String animal : animalInfos.keySet()) {
-            message += "Animal " + animal + ": " + animalInfos.get(animal) + "\n";
+            message += animal + ": " + animalInfos.get(animal) + "\n";
         }
 
         JOptionPane.showMessageDialog(this, message);
@@ -987,47 +987,50 @@ public class ShelterGui extends javax.swing.JFrame {
         String name = animalName.getText();
         
         if(name.trim().equals("")){
-            addAnimalWarningMessage.setText("You cannot empty the name field!");
-        }else{
+            addAnimalWarningMessage.setText("Name field can't be empty!");
+        }
+        else{
             //animal type
             String type = (String) animalType.getSelectedItem();
-            animalInfos.put("type", type);
-            animalInfos.put("name",name);
+            animalInfos.put("Type", type);
+            animalInfos.put("Name",name);
             
             //animal age
             String age = animalAge.getText();
-            animalInfos.put("age",age);
+            animalInfos.put("Age",age);
         
             // animal gender
             String gender = "";
             if(genderFemale.isSelected()){
-                gender = "She";
-                animalInfos.put("gender","She");
-            }else if(genderMale.isSelected()){
-                gender = "He";
-                animalInfos.put("gender","He");
+                gender = "Female";
+                animalInfos.put("Gender","Female");
+            }
+            else if(genderMale.isSelected()){
+                gender = "Male";
+                animalInfos.put("Gender","Male");
             }
             
             // sterilize
             String sterilize = "";
             if(sterilizeNo.isSelected()){
                 sterilize = "No";
-                animalInfos.put("sterilize","No");
-            }else if(sterilizeYes.isSelected()){
+                animalInfos.put("Sterilize","No");
+            }
+            else if(sterilizeYes.isSelected()){
                 sterilize = "Yes";
-                animalInfos.put("sterilize","Yes");
+                animalInfos.put("Sterilize","Yes");
             }
                 
             //animal length - weight
             String length = animalLength.getText();
             String weight = animalWeight.getText();
 
-            animalInfos.put("length", length);
-            animalInfos.put("weight", weight);
+            animalInfos.put("Length", length);
+            animalInfos.put("Weight", weight);
      
             //animal place
             String place = (String) animalPlace.getSelectedItem();
-            animalInfos.put("place",place);
+            animalInfos.put("Place",place);
 
             showpopup();
             
@@ -1052,17 +1055,21 @@ public class ShelterGui extends javax.swing.JFrame {
         
         if(selectedRow == -1){
             if(displayAnimalTable.getRowCount() == 0){
-                displayAnimalWarningMessage.setText("Animal Table empty!");
-            }else{
-                displayAnimalWarningMessage.setText("Please select animal before click update button");
+                displayAnimalWarningMessage.setText("Animal table is empty !");
             }
-        }else{
+            else{
+                displayAnimalWarningMessage.setText("Please select an animal to update !");
+            }
+        }
+        else{
             String sterilize = "";
             if(displayAnimalSterilizeNo.isSelected()){
                 sterilize = "No";
-            }else if(displayAnimalSterilizeYes.isSelected()){
+            }
+            else if(displayAnimalSterilizeYes.isSelected()){
                 sterilize = "Yes";
             }
+           
             model.setValueAt(displayAnimalNameInput.getText(),selectedRow,1);
             model.setValueAt(displayAnimalAgeInput.getText(),selectedRow,2);
             model.setValueAt(sterilize,selectedRow,4);
@@ -1070,7 +1077,7 @@ public class ShelterGui extends javax.swing.JFrame {
             model.setValueAt(displayAnimalWeightInput.getText(),selectedRow,6);
             model.setValueAt(displayAnimalPlaceCombo.getSelectedItem().toString(),selectedRow,7);
             
-            displayAnimalWarningMessage.setText("Ürün Başarıyla Güncellendi");
+            displayAnimalWarningMessage.setText("Update successfully.");
         }
         
         
@@ -1087,6 +1094,7 @@ public class ShelterGui extends javax.swing.JFrame {
     }//GEN-LAST:event_displayAnimalSterilizeYesActionPerformed
 
     private void displayAnimalTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayAnimalTableMouseClicked
+        
         DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
         
         int seciliRow = displayAnimalTable.getSelectedRow();
@@ -1094,9 +1102,11 @@ public class ShelterGui extends javax.swing.JFrame {
         displayAnimalNameInput.setText(model.getValueAt(seciliRow,1).toString());
         displayAnimalAgeInput.setText(model.getValueAt(seciliRow,2).toString());
         String sterilize = model.getValueAt(seciliRow,4).toString();
+        
         if(sterilize.equals("Yes")){
             displayAnimalSterilizeYes.setSelected(true);
-        }else if(sterilize.equals("No")){
+        }
+        else if(sterilize.equals("No")){
             displayAnimalSterilizeNo.setSelected(true);
         }
         displayAnimalLengthInput.setText(model.getValueAt(seciliRow,5).toString());
@@ -1106,6 +1116,7 @@ public class ShelterGui extends javax.swing.JFrame {
     }//GEN-LAST:event_displayAnimalTableMouseClicked
 
     private void deleteAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAnimalButtonActionPerformed
+        
         DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
         
         displayAnimalWarningMessage.setText("");     
@@ -1114,13 +1125,15 @@ public class ShelterGui extends javax.swing.JFrame {
         
         if(seciliRow == -1){
             if(displayAnimalTable.getRowCount() == 0){
-                displayAnimalWarningMessage.setText("Animal Table empty!");
-            }else{
+                displayAnimalWarningMessage.setText("Animal table is empty!");
+            }
+            else{
                 displayAnimalWarningMessage.setText("Please select row before click delete button!");
             }
-        }else{
+        }
+        else{
             model.removeRow(seciliRow);
-            displayAnimalWarningMessage.setText("Animal Deleted successfully");
+            displayAnimalWarningMessage.setText("Animal deleted successfully.");
         }
         
     }//GEN-LAST:event_deleteAnimalButtonActionPerformed
