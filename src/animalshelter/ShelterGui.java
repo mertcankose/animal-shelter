@@ -12,26 +12,69 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author mertc
  */
-public class ShelterGui extends javax.swing.JFrame {
 
+class User {
+    private String email;
+    private String passoword;
+
+    public User(String email, String passoword) {
+        this.email = email;
+        this.passoword = passoword;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassoword() {
+        return passoword;
+    }
+
+    public void setPassoword(String passoword) {
+        this.passoword = passoword;
+    }
+    
+}
+
+public class ShelterGui extends javax.swing.JFrame {
+    private static ArrayList<User> user_list = new ArrayList<User>();
+
+    public static ArrayList<User> getUser_list() {
+        return user_list;
+    }
+
+    public static void setUser_list(ArrayList<User> user_list) {
+        ShelterGui.user_list = user_list;
+    }
+    
+    
+    
     HashMap<String, String> animalInfos = new HashMap<String, String>();
 
     /**
      * Creates new form ShelterGui
      */
     public ShelterGui() {
+ 
         initComponents();
-        customCursor();
+
+        // customCursor();
     }
 
     class jPanelGradient extends JPanel {
@@ -90,13 +133,6 @@ public class ShelterGui extends javax.swing.JFrame {
         Pannels = new javax.swing.JPanel();
         HomeScreen = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        eMailJTextField = new javax.swing.JTextField();
-        passwordJTextField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jSeparator5 = new javax.swing.JSeparator();
@@ -122,10 +158,9 @@ public class ShelterGui extends javax.swing.JFrame {
         sterilizeYes = new javax.swing.JRadioButton();
         sterilizeNo = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        updateAnimalButton = new javax.swing.JButton();
-        deleteAnimalButton = new javax.swing.JButton();
+        animalPlace = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        addAnimalWarningMessage = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
@@ -135,6 +170,26 @@ public class ShelterGui extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel29 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        displayAnimalTable = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        displayAnimalNameInput = new javax.swing.JTextField();
+        addAnimalButton1 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        displayAnimalWeightInput = new javax.swing.JTextField();
+        displayAnimalAgeInput = new javax.swing.JTextField();
+        displayAnimalLengthInput = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        displayAnimalSterilizeYes = new javax.swing.JRadioButton();
+        displayAnimalSterilizeNo = new javax.swing.JRadioButton();
+        jLabel38 = new javax.swing.JLabel();
+        displayAnimalPlaceCombo = new javax.swing.JComboBox<>();
+        updateAnimalButton = new javax.swing.JButton();
+        deleteAnimalButton = new javax.swing.JButton();
+        displayAnimalWarningMessage = new javax.swing.JLabel();
         AboutScreen = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -280,55 +335,6 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("This system help you easily manage the animals in the animal shelter.");
 
-        jLabel26.setFont(new java.awt.Font("Yu Gothic Medium", 0, 12)); // NOI18N
-        jLabel26.setText("*Before using this system please login");
-
-        jPanel7.setBackground(new java.awt.Color(153, 153, 255));
-        jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel27.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel27.setText("E-mail :");
-
-        jLabel28.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel28.setText("Password :");
-
-        jButton2.setText("LogIn");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordJTextField)
-                            .addComponent(eMailJTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                        .addGap(91, 91, 91))))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eMailJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
-
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel24.setText("Animal Shelter Management System");
 
@@ -372,16 +378,9 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(HomeScreenLayout.createSequentialGroup()
-                        .addGroup(HomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HomeScreenLayout.createSequentialGroup()
-                                .addGap(198, 198, 198)
-                                .addGroup(HomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(HomeScreenLayout.createSequentialGroup()
-                                .addGap(224, 224, 224)
-                                .addComponent(jLabel24)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(224, 224, 224)
+                        .addComponent(jLabel24)
+                        .addGap(0, 246, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         HomeScreenLayout.setVerticalGroup(
@@ -393,11 +392,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
-                .addGap(61, 61, 61)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addContainerGap(571, Short.MAX_VALUE))
         );
 
         Pannels.add(HomeScreen, "card2");
@@ -457,22 +452,8 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
         jLabel22.setText("Place : ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D" }));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(32, 30));
-
-        updateAnimalButton.setText("UPDATE");
-        updateAnimalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateAnimalButtonActionPerformed(evt);
-            }
-        });
-
-        deleteAnimalButton.setText("DELETE");
-        deleteAnimalButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteAnimalButtonActionPerformed(evt);
-            }
-        });
+        animalPlace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D" }));
+        animalPlace.setPreferredSize(new java.awt.Dimension(32, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mapp.png"))); // NOI18N
 
@@ -483,6 +464,12 @@ public class ShelterGui extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(93, 93, 93))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,26 +490,15 @@ public class ShelterGui extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(96, 96, 96)
                                 .addComponent(sterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(animalPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sterilizeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(genderMale, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(genderFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addGap(93, 93, 93))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(genderFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(79, 79, 79)
+                        .addComponent(addAnimalWarningMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(93, 93, 93))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,12 +543,11 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel22)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(animalPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addAnimalWarningMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -651,13 +626,185 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        displayAnimalTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Type", "Name", "Age", "Gender", "Sterilize", "Length", "Weight", "Place"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        displayAnimalTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                displayAnimalTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(displayAnimalTable);
+
+        jLabel31.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel31.setText("Name :");
+
+        addAnimalButton1.setText("ADD");
+        addAnimalButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addAnimalButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel33.setText("Age :");
+
+        jLabel34.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel34.setText("Length :");
+
+        jLabel35.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel35.setText("Weight :");
+
+        jLabel37.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel37.setText("Is Steralize :");
+
+        buttonGroup2.add(displayAnimalSterilizeYes);
+        displayAnimalSterilizeYes.setText("Yes");
+        displayAnimalSterilizeYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayAnimalSterilizeYesActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(displayAnimalSterilizeNo);
+        displayAnimalSterilizeNo.setText("No");
+
+        jLabel38.setFont(new java.awt.Font("Yu Gothic UI", 1, 13)); // NOI18N
+        jLabel38.setText("Place : ");
+
+        displayAnimalPlaceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D" }));
+        displayAnimalPlaceCombo.setPreferredSize(new java.awt.Dimension(32, 30));
+
+        updateAnimalButton.setText("UPDATE");
+        updateAnimalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateAnimalButtonActionPerformed(evt);
+            }
+        });
+
+        deleteAnimalButton.setText("DELETE");
+        deleteAnimalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAnimalButtonActionPerformed(evt);
+            }
+        });
+
+        displayAnimalWarningMessage.setForeground(new java.awt.Color(204, 0, 51));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(addAnimalButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))
+                        .addGap(54, 54, 54)
+                        .addComponent(displayAnimalNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(displayAnimalSterilizeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(displayAnimalSterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(displayAnimalLengthInput, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(displayAnimalWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(displayAnimalPlaceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(displayAnimalAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(120, 120, 120)
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(updateAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(deleteAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(57, 57, 57)
+                                        .addComponent(displayAnimalWarningMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addGap(0, 41, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(displayAnimalNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(displayAnimalAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(displayAnimalLengthInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(deleteAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(displayAnimalWarningMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(displayAnimalWeightInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(displayAnimalSterilizeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(displayAnimalSterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(displayAnimalPlaceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(234, 234, 234)
+                .addComponent(addAnimalButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout DisplayAnimalsScreenLayout = new javax.swing.GroupLayout(DisplayAnimalsScreen);
         DisplayAnimalsScreen.setLayout(DisplayAnimalsScreenLayout);
         DisplayAnimalsScreenLayout.setHorizontalGroup(
             DisplayAnimalsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DisplayAnimalsScreenLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(DisplayAnimalsScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
+                    .addGroup(DisplayAnimalsScreenLayout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         DisplayAnimalsScreenLayout.setVerticalGroup(
@@ -665,7 +812,11 @@ public class ShelterGui extends javax.swing.JFrame {
             .addGroup(DisplayAnimalsScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(629, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         Pannels.add(DisplayAnimalsScreen, "card2");
@@ -830,56 +981,149 @@ public class ShelterGui extends javax.swing.JFrame {
     }
 
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
-
-        //animal type
-        String type = (String) animalType.getSelectedItem();
-        animalInfos.put("type", type);
-
+        addAnimalWarningMessage.setText("");
+        
         //animal name
         String name = animalName.getText();
-        animalInfos.put("name", name);
+        
+        if(name.trim().equals("")){
+            addAnimalWarningMessage.setText("You cannot empty the name field!");
+        }else{
+            //animal type
+            String type = (String) animalType.getSelectedItem();
+            animalInfos.put("type", type);
+            animalInfos.put("name",name);
+            
+            //animal age
+            String age = animalAge.getText();
+            animalInfos.put("age",age);
+        
+            // animal gender
+            String gender = "";
+            if(genderFemale.isSelected()){
+                gender = "She";
+                animalInfos.put("gender","She");
+            }else if(genderMale.isSelected()){
+                gender = "He";
+                animalInfos.put("gender","He");
+            }
+            
+            // sterilize
+            String sterilize = "";
+            if(sterilizeNo.isSelected()){
+                sterilize = "No";
+                animalInfos.put("sterilize","No");
+            }else if(sterilizeYes.isSelected()){
+                sterilize = "Yes";
+                animalInfos.put("sterilize","Yes");
+            }
+                
+            //animal length - weight
+            String length = animalLength.getText();
+            String weight = animalWeight.getText();
 
-        //animal age
-        String age = animalAge.getText();
-        animalInfos.put("age", age);
+            animalInfos.put("length", length);
+            animalInfos.put("weight", weight);
+     
+            //animal place
+            String place = (String) animalPlace.getSelectedItem();
+            animalInfos.put("place",place);
 
-        //animal gender
-        if (genderFemale.isSelected()) {
-            animalInfos.put("gender", "Female");
-        } else if (genderMale.isSelected()) {
-            animalInfos.put("gender", "Male");
+            showpopup();
+            
+            //Table
+            DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
+            
+            Object[] added = {type,name,age,gender,sterilize,length,weight,place};
+            model.addRow(added);
         }
-        if (sterilizeNo.isSelected()) {
-            animalInfos.put("sterilize", "No");
-        } else if (sterilizeYes.isSelected()) {
-            animalInfos.put("sterilize", "Yes");
-        }
-
-        //animal length - weight
-        String length = animalLength.getText();
-        String weight = animalWeight.getText();
-
-        animalInfos.put("length", length);
-        animalInfos.put("weight", weight);
-
-        //animal place
-        String place = (String) jComboBox2.getSelectedItem();
-        animalInfos.put("place", place);
-
-        showpopup();
     }//GEN-LAST:event_addAnimalButtonActionPerformed
-
-    private void updateAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAnimalButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateAnimalButtonActionPerformed
-
-    private void deleteAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAnimalButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteAnimalButtonActionPerformed
 
     private void sterilizeYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sterilizeYesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sterilizeYesActionPerformed
+
+    private void updateAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAnimalButtonActionPerformed
+        displayAnimalWarningMessage.setText("");
+        
+        DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
+        
+        int selectedRow = displayAnimalTable.getSelectedRow();
+        
+        if(selectedRow == -1){
+            if(displayAnimalTable.getRowCount() == 0){
+                displayAnimalWarningMessage.setText("Animal Table empty!");
+            }else{
+                displayAnimalWarningMessage.setText("Please select animal before click update button");
+            }
+        }else{
+            String sterilize = "";
+            if(displayAnimalSterilizeNo.isSelected()){
+                sterilize = "No";
+            }else if(displayAnimalSterilizeYes.isSelected()){
+                sterilize = "Yes";
+            }
+            model.setValueAt(displayAnimalNameInput.getText(),selectedRow,1);
+            model.setValueAt(displayAnimalAgeInput.getText(),selectedRow,2);
+            model.setValueAt(sterilize,selectedRow,4);
+            model.setValueAt(displayAnimalLengthInput.getText(),selectedRow,5);
+            model.setValueAt(displayAnimalWeightInput.getText(),selectedRow,6);
+            model.setValueAt(displayAnimalPlaceCombo.getSelectedItem().toString(),selectedRow,7);
+            
+            displayAnimalWarningMessage.setText("Ürün Başarıyla Güncellendi");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_updateAnimalButtonActionPerformed
+
+    private void addAnimalButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addAnimalButton1ActionPerformed
+
+    private void displayAnimalSterilizeYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAnimalSterilizeYesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_displayAnimalSterilizeYesActionPerformed
+
+    private void displayAnimalTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayAnimalTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
+        
+        int seciliRow = displayAnimalTable.getSelectedRow();
+            
+        displayAnimalNameInput.setText(model.getValueAt(seciliRow,1).toString());
+        displayAnimalAgeInput.setText(model.getValueAt(seciliRow,2).toString());
+        String sterilize = model.getValueAt(seciliRow,4).toString();
+        if(sterilize.equals("Yes")){
+            displayAnimalSterilizeYes.setSelected(true);
+        }else if(sterilize.equals("No")){
+            displayAnimalSterilizeNo.setSelected(true);
+        }
+        displayAnimalLengthInput.setText(model.getValueAt(seciliRow,5).toString());
+        displayAnimalWeightInput.setText(model.getValueAt(seciliRow,6).toString());
+        displayAnimalPlaceCombo.setSelectedItem(model.getValueAt(seciliRow,7).toString());
+        
+    }//GEN-LAST:event_displayAnimalTableMouseClicked
+
+    private void deleteAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAnimalButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) displayAnimalTable.getModel();
+        
+        displayAnimalWarningMessage.setText("");     
+        
+        int seciliRow = displayAnimalTable.getSelectedRow();
+        
+        if(seciliRow == -1){
+            if(displayAnimalTable.getRowCount() == 0){
+                displayAnimalWarningMessage.setText("Animal Table empty!");
+            }else{
+                displayAnimalWarningMessage.setText("Please select row before click delete button!");
+            }
+        }else{
+            model.removeRow(seciliRow);
+            displayAnimalWarningMessage.setText("Animal Deleted successfully");
+        }
+        
+    }//GEN-LAST:event_deleteAnimalButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -926,20 +1170,29 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JPanel Pannels;
     private javax.swing.JPanel SettingsScreen;
     private javax.swing.JButton addAnimalButton;
+    private javax.swing.JButton addAnimalButton1;
+    private javax.swing.JLabel addAnimalWarningMessage;
     private javax.swing.JTextField animalAge;
     private javax.swing.JTextField animalLength;
     private javax.swing.JTextField animalName;
+    private javax.swing.JComboBox<String> animalPlace;
     private javax.swing.JComboBox<String> animalType;
     private javax.swing.JTextField animalWeight;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton deleteAnimalButton;
-    private javax.swing.JTextField eMailJTextField;
+    private javax.swing.JTextField displayAnimalAgeInput;
+    private javax.swing.JTextField displayAnimalLengthInput;
+    private javax.swing.JTextField displayAnimalNameInput;
+    private javax.swing.JComboBox<String> displayAnimalPlaceCombo;
+    private javax.swing.JRadioButton displayAnimalSterilizeNo;
+    private javax.swing.JRadioButton displayAnimalSterilizeYes;
+    private javax.swing.JTable displayAnimalTable;
+    private javax.swing.JLabel displayAnimalWarningMessage;
+    private javax.swing.JTextField displayAnimalWeightInput;
     private javax.swing.JRadioButton genderFemale;
     private javax.swing.JRadioButton genderMale;
     private javax.swing.JLabel github;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
@@ -955,11 +1208,14 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -972,7 +1228,8 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
@@ -983,7 +1240,6 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField passwordJTextField;
     private javax.swing.JRadioButton sterilizeNo;
     private javax.swing.JRadioButton sterilizeYes;
     private javax.swing.JButton updateAnimalButton;
