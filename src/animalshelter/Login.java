@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        registerLink.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        registerLink.setFont(new java.awt.Font("Yu Gothic", 1, 14)); // NOI18N
         registerLink.setForeground(new java.awt.Color(255, 255, 255));
         registerLink.setText("REGISTER");
         registerLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -56,14 +56,15 @@ public class Login extends javax.swing.JFrame {
                 registerLinkMouseClicked(evt);
             }
         });
-        jPanel1.add(registerLink, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 430, 80, 20));
+        jPanel1.add(registerLink, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 600, 80, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Don't have an account?");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 160, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 600, 160, 20));
 
-        loginButton.setBackground(new java.awt.Color(102, 0, 102));
+        loginButton.setBackground(new java.awt.Color(153, 0, 153));
+        loginButton.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("LOGIN");
         loginButton.setBorder(null);
@@ -73,34 +74,34 @@ public class Login extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 80, 30));
-        jPanel1.add(loginPasswordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 240, 30));
+        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 110, 40));
+        jPanel1.add(loginPasswordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 350, 40));
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
-        jPanel1.add(loginEmailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 240, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
+        jPanel1.add(loginEmailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 
-        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("E-MAIL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 70, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 70, 20));
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ANIMAL SHELTER LOGIN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 340, 50));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 350, 50));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon animals.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, 500));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -350, 1410, 1110));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bgr.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 710, 540));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 750));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
