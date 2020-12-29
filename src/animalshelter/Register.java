@@ -7,15 +7,10 @@ package animalshelter;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author mertc
- */
 public class Register extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
+    DatabaseOperations databaseOperations = new DatabaseOperations();
+    
     public Register() {
         initComponents();
     }
@@ -35,13 +30,14 @@ public class Register extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
         registerPasswordInput = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        registerEmailInput = new javax.swing.JTextField();
+        registerUsernamelInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(250, 120, 0, 0));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -77,12 +73,12 @@ public class Register extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
-        jPanel1.add(registerEmailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
+        jPanel1.add(registerUsernamelInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("E-MAIL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 70, 20));
+        jLabel3.setText("USERNAME");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,12 +110,13 @@ public class Register extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         Login login = new Login();
         
-        String email = registerEmailInput.getText();
+        String username = registerUsernamelInput.getText();
         String password = new String(registerPasswordInput.getPassword());
         
-        ArrayList<User> user_list = ShelterGui.getUser_list();
+        databaseOperations.register(username,password);
         
-        user_list.add(new User(email,password));
+        //ArrayList<User> user_list = ShelterGui.getUser_list();
+        //user_list.add(new User(email,password));
         
         this.setVisible(false);
         login.setVisible(true);
@@ -177,7 +174,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginLink;
     private javax.swing.JButton registerButton;
-    private javax.swing.JTextField registerEmailInput;
     private javax.swing.JPasswordField registerPasswordInput;
+    private javax.swing.JTextField registerUsernamelInput;
     // End of variables declaration//GEN-END:variables
 }

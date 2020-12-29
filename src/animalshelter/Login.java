@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package animalshelter;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author mertc
- */
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Login
-     */
+    
+    DatabaseOperations databaseOperations = new DatabaseOperations();
+  
     public Login() {
         initComponents();
     }
@@ -36,13 +27,14 @@ public class Login extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         loginPasswordInput = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        loginEmailInput = new javax.swing.JTextField();
+        loginUsernameInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(250, 120, 0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,12 +73,12 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
-        jPanel1.add(loginEmailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
+        jPanel1.add(loginUsernameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("E-MAIL");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 70, 20));
+        jLabel3.setText("USERNAME");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,16 +101,26 @@ public class Login extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         ShelterGui shelter = new ShelterGui();
         
-        String email = loginEmailInput.getText();
+        String username = loginUsernameInput.getText();
         String password = new String(loginPasswordInput.getPassword());
         
+        boolean login_success = databaseOperations.login(username,password);
+        
+        if(login_success){
+            shelter.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this,"There is no user that has this username or password. Please Register!");
+        }
+        
+        /*
         ArrayList<User> user_list = ShelterGui.getUser_list();
         
         if(user_list.size() == 0){
             JOptionPane.showMessageDialog(this,"There is no user any!");
         }else{
             for(User user:user_list){
-                if(user.getEmail().equals(email) && user.getPassoword().equals(password)){
+                if(user.getEmail().equals(username) && user.getPassoword().equals(password)){
                      shelter.setVisible(true);
                      this.setVisible(false);
                      return;
@@ -126,6 +128,7 @@ public class Login extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this,"There is no user that has this mail or password. Please Register!");
         }
+        */
         
     
     }//GEN-LAST:event_loginButtonActionPerformed
@@ -181,8 +184,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
-    private javax.swing.JTextField loginEmailInput;
     private javax.swing.JPasswordField loginPasswordInput;
+    private javax.swing.JTextField loginUsernameInput;
     private javax.swing.JLabel registerLink;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,16 +1,14 @@
 
 package animalshelter;
 
-
 public class Cat extends Animal {
 
-    public Cat(String name, String type, double age, double length, double weight, String place, String gender, double healthRatio, String registerDate, double hungerRatio, String keeper, boolean isSterilize) {
-        super(name, type, age, length, weight, place, gender, healthRatio, registerDate, hungerRatio, keeper, isSterilize);
+    public Cat(int id, String type, String name, String age, String gender, String isSterilize, String length, String weight, String place) {
+        super(id, type, name, age, gender, isSterilize, length, weight, place);
     }
 
     @Override
-    public void setHealth(double health) {
+    public void setHealth(String health) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

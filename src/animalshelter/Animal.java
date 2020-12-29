@@ -1,45 +1,47 @@
 
 package animalshelter;
 
-
 public abstract class Animal {
-    private String name;
+    private int id;
     private String type;
-    private double age;
-    private double length;
-    private double weight;
+    private String name;
+    private String age;
+    private String length;
+    private String weight;
     private String gender;
     private String place;
-    private double healthRatio;
-    private String registerDate;
-    private double hungerRatio;
-    private String keeper;
-    private boolean isSterilize;
+    private String isSterilize;
     
-
-    public Animal(String name, String type, double age, double length, double weight, String place, String gender, double healthRatio, String registerDate, double hungerRatio,String keeper,boolean isSterilize) {
-        this.name = name;
+    public Animal(int id,String type, String name, String age, String gender,String isSterilize, String length, String weight, String place) {
+        this.id = id;
         this.type = type;
+        this.name = name;
         this.age = age;
         this.length = length;
         this.weight = weight;
         this.place = place;
         this.gender = gender;
-        this.healthRatio = healthRatio;
-        this.registerDate = registerDate;
-        this.hungerRatio = hungerRatio;
-        this.keeper = keeper;
         this.isSterilize = isSterilize;
     }
     
-    public abstract void setHealth(double health);
+    public abstract void setHealth(String health);
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    public double eat(){
-        return this.hungerRatio;
+    public String getIsSterilize() {
+        return isSterilize;
     }
-    public double getDrug(){
-        return this.healthRatio;
+
+    public void setIsSterilize(String isSterilize) {
+        this.isSterilize = isSterilize;
     }
+    
     
     public String getName() {
         return name;
@@ -57,27 +59,27 @@ public abstract class Animal {
         this.type = type;
     }
 
-    public double getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(double age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public double getLength() {
+    public String getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(String length) {
         this.length = length;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
@@ -97,24 +99,12 @@ public abstract class Animal {
         this.gender = gender;
     }
 
-    public double getHealth() {
-        return this.healthRatio;
+    @Override
+    public String toString() {
+        return "Animal{" + "type=" + type + ", name=" + name + ", age=" + age + ", length=" + length + ", weight=" + weight + ", gender=" + gender + ", place=" + place + ", isSterilize=" + isSterilize + '}';
     }
 
   
-
-    public String getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(String registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Animal{" + "name=" + name + ", type=" + type + ", age=" + age + ", length=" + length + ", weight=" + weight + ", place=" + place + ", gender=" + gender + ", health=" + healthRatio + ", registerDate=" + registerDate + '}';
-    }
     
     
 }
