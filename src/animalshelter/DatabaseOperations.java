@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class DatabaseOperations {
     private Connection con = null;
     private Statement statement = null;
@@ -56,7 +55,6 @@ public class DatabaseOperations {
             return null;
         }
     }
-  
     public void addAnimal(String type,String name, String age,String gender,String sterilize,String length,String weight, String place){
         String query = "Insert Into animals (type,name,age,gender,sterilize,length,weight,place) VALUES(?,?,?,?,?,?,?,?)";
         
@@ -77,7 +75,6 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     public void updateAnimal(int id,String new_type,String new_name, String new_age, String new_gender,String new_sterilize,String new_length,String new_weight,String new_place){
         String query = "Update animals set type = ?, name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ? where id = ?";
 
@@ -101,7 +98,6 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     public void deleteAnimal(int id){
         String query = "Delete from animals where id = ?";
         
@@ -115,7 +111,6 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
     public boolean login(String username,String password){
         String query = "Select * From admins where username = ? and password = ?";
         
@@ -161,4 +156,3 @@ public class DatabaseOperations {
         }
     }
 }
-
