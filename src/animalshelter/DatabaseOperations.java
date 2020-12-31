@@ -99,7 +99,7 @@ public class DatabaseOperations {
         }
     }
     public void deleteAnimal(int id){
-        String query = "Delete from animals where id = ?";
+        String query = "Delete FROM animals where id = ?";
         
         try {
             prepareStatement = con.prepareStatement(query);
