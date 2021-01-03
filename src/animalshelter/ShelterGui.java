@@ -97,6 +97,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         github = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        LogoutjButton = new javax.swing.JButton();
         Content = new javax.swing.JPanel();
         Pannels = new javax.swing.JPanel();
         HomeScreen = new javax.swing.JPanel();
@@ -276,6 +277,13 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ANIMAL");
 
+        LogoutjButton.setText("Logout");
+        LogoutjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutjButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
@@ -289,6 +297,9 @@ public class ShelterGui extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LogoutjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(github, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MenuLayout.createSequentialGroup()
@@ -316,7 +327,11 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(github, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(github, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                        .addComponent(LogoutjButton)
+                        .addContainerGap())))
         );
 
         Content.setLayout(new java.awt.CardLayout());
@@ -1550,6 +1565,15 @@ public class ShelterGui extends javax.swing.JFrame {
         displayAnimalGenderMale.setSelected(false);
     }//GEN-LAST:event_displayAnimalGenderFemaleActionPerformed
 
+    private void LogoutjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutjButtonActionPerformed
+    //Logout button
+        this.setVisible(false);
+    
+        Login login1 = new Login();
+        login1.setVisible(true);
+    
+    }//GEN-LAST:event_LogoutjButtonActionPerformed
+
 
     
     public static void main(String args[]) {
@@ -1590,6 +1614,7 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JPanel Content;
     private javax.swing.JPanel DisplayAnimalsScreen;
     private javax.swing.JPanel HomeScreen;
+    private javax.swing.JButton LogoutjButton;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel Pannels;
     private javax.swing.JPanel SettingsScreen;
