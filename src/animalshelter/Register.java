@@ -6,6 +6,7 @@
 package animalshelter;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 public class Register extends javax.swing.JFrame {
 
@@ -13,6 +14,7 @@ public class Register extends javax.swing.JFrame {
     
     public Register() {
         initComponents();
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -33,7 +35,6 @@ public class Register extends javax.swing.JFrame {
         registerUsernamelInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,7 +58,7 @@ public class Register extends javax.swing.JFrame {
         jLabel6.setText("Do you have an account already?");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 600, -1, -1));
 
-        registerButton.setBackground(new java.awt.Color(102, 0, 102));
+        registerButton.setBackground(new java.awt.Color(51, 102, 0));
         registerButton.setFont(new java.awt.Font("Yu Gothic UI", 1, 11)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("REGISTER");
@@ -68,31 +69,29 @@ public class Register extends javax.swing.JFrame {
             }
         });
         jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 110, 40));
+
+        registerPasswordInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
         jPanel1.add(registerPasswordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 350, 40));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PASSWORD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
+
+        registerUsernamelInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
         jPanel1.add(registerUsernamelInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("USERNAME");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ANIMAL SHELTER REGISTER");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 440, 50));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon animals.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -340, 1410, 1090));
-
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bgr.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, 0, 1580, 770));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -20, 1650, 990));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,7 +170,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginLink;
     private javax.swing.JButton registerButton;
