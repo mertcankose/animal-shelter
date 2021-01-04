@@ -69,7 +69,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 110, 40));
 
-        loginPasswordInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
+        loginPasswordInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 15)); // NOI18N
         loginPasswordInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(loginPasswordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 350, 40));
 
@@ -77,7 +77,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("PASSWORD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
 
-        loginUsernameInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
+        loginUsernameInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 15)); // NOI18N
         loginUsernameInput.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(loginUsernameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 

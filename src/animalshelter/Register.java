@@ -70,14 +70,14 @@ public class Register extends javax.swing.JFrame {
         });
         jPanel1.add(registerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 510, 110, 40));
 
-        registerPasswordInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
+        registerPasswordInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 15)); // NOI18N
         jPanel1.add(registerPasswordInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 350, 40));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
         jLabel5.setText("PASSWORD");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
 
-        registerUsernamelInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 13)); // NOI18N
+        registerUsernamelInput.setFont(new java.awt.Font("Yu Gothic UI", 0, 15)); // NOI18N
         jPanel1.add(registerUsernamelInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 350, 40));
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 16)); // NOI18N
