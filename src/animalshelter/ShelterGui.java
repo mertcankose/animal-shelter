@@ -1136,7 +1136,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jLabel26.setText("Name Surname: Kamil Birkan Tonkal");
 
         jLabel40.setFont(new java.awt.Font("Yu Gothic Medium", 0, 15)); // NOI18N
-        jLabel40.setText("E-Mail: ");
+        jLabel40.setText("E-Mail: tonkalkamilbirkan@gmail.com ");
 
         jLabel41.setFont(new java.awt.Font("Yu Gothic Medium", 0, 15)); // NOI18N
         jLabel41.setText("ID: 18050111060");
@@ -1349,7 +1349,7 @@ public class ShelterGui extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, 733, Short.MAX_VALUE)
+            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
             .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
