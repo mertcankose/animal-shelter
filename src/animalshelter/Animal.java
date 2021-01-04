@@ -1,7 +1,7 @@
 
 package animalshelter;
 
-public abstract class Animal {
+public abstract class Animal implements IOzellik {
     private int id;
     private String type;
     private String name;
@@ -17,14 +17,14 @@ public abstract class Animal {
         this.type = type;
         this.name = name;
         this.age = age;
+        this.gender = gender;
+        this.isSterilize = isSterilize;
         this.length = length;
         this.weight = weight;
         this.place = place;
-        this.gender = gender;
-        this.isSterilize = isSterilize;
     }
     
-    public abstract void setHealth(String health);
+    // public abstract void setHealth(String health);
 
     public int getId() {
         return id;

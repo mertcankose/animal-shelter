@@ -85,10 +85,10 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("USERNAME");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 100, 20));
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 30)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("ANIMAL SHELTER LOGIN");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 350, 50));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, 280, 50));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pet.jpg"))); // NOI18N

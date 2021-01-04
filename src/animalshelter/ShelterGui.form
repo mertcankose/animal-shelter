@@ -969,7 +969,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1087,20 +1087,26 @@
                               <Font name="Yu Gothic UI" size="11" style="0"/>
                             </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="9" rowCount="0">
+                              <Table columnCount="10" rowCount="0">
                                 <Column editable="true" title="Id" type="java.lang.Object"/>
                                 <Column editable="false" title="Type" type="java.lang.Object"/>
-                                <Column editable="true" title="Name" type="java.lang.Object"/>
+                                <Column editable="false" title="Name" type="java.lang.Object"/>
                                 <Column editable="false" title="Age" type="java.lang.Object"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                                 <Column editable="false" title="Sterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
+                                <Column editable="true" title="Health" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>

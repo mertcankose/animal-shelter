@@ -30,7 +30,7 @@ public class ShelterGui extends javax.swing.JFrame {
     DatabaseOperations databaseOperations = new DatabaseOperations();
     
     
-    HashMap<String, String> animalInfos = new HashMap<String, String>();
+    // HashMap<String, String> animalInfos = new HashMap<String, String>();
 
     /**
      * Creates new form ShelterGui
@@ -735,11 +735,11 @@ public class ShelterGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Type", "Name", "Age", "Gender", "Sterilize", "Length", "Weight", "Place"
+                "Id", "Type", "Name", "Age", "Gender", "Sterilize", "Length", "Weight", "Place", "Health"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -1054,7 +1054,7 @@ public class ShelterGui extends javax.swing.JFrame {
             .addGroup(DisplayAnimalsScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Pannels.add(DisplayAnimalsScreen, "card2");
@@ -1331,14 +1331,30 @@ public class ShelterGui extends javax.swing.JFrame {
     public void showTable(){
         model.setRowCount(0);
         
-        ArrayList<Animal> animals = new ArrayList<Animal>();
+        ArrayList<Dog> dogs = new ArrayList<Dog>();
+        ArrayList<Cat> cats = new ArrayList<Cat>();
+        ArrayList<Bird> birds = new ArrayList<Bird>();
+
+        dogs =  databaseOperations.getDogs();
+        cats =  databaseOperations.getCats();
+        birds =  databaseOperations.getBirds();
         
-        animals =  databaseOperations.getAnimals();
-        
-        if(animals != null){
-            for(Animal animal:animals){
-                Object[] added = {animal.getId(),animal.getType(),animal.getName(),animal.getAge(),animal.getGender(),animal.getIsSterilize(),animal.getLength(),animal.getWeight(),animal.getPlace()};
-                model.addRow(added);
+        if(dogs != null){
+            for(Dog dog:dogs){
+                Object[] addedDog = {dog.getId(),dog.getType(),dog.getName(),dog.getAge(),dog.getGender(),dog.getIsSterilize(),dog.getLength(),dog.getWeight(),dog.getPlace(),dog.getHealth()};
+                model.addRow(addedDog);
+            }
+        }
+        if(cats != null){
+            for(Cat cat:cats){
+                Object[] addedCat = {cat.getId(),cat.getType(),cat.getName(),cat.getAge(),cat.getGender(),cat.getIsSterilize(),cat.getLength(),cat.getWeight(),cat.getPlace(),cat.getHealth()};
+                model.addRow(addedCat);
+            }
+        }
+        if(birds != null){
+            for(Bird bird:birds){
+                Object[] addedDog = {bird.getId(),bird.getType(),bird.getName(),bird.getAge(),bird.getGender(),bird.getIsSterilize(),bird.getLength(),bird.getWeight(),bird.getPlace(),bird.getHealth()};
+                model.addRow(addedDog);
             }
         }
     }
@@ -1362,9 +1378,6 @@ public class ShelterGui extends javax.swing.JFrame {
     public void showpopup() {
         String message = "ADDED !\n";
 
-        for (String animal : animalInfos.keySet()) {
-            message += animal + ": " + animalInfos.get(animal) + "\n";
-        }
 
         JOptionPane.showMessageDialog(this, message);
     }
@@ -1410,9 +1423,20 @@ public class ShelterGui extends javax.swing.JFrame {
             //animal place
             String place = (String) animalPlace.getSelectedItem();
             
+            
+            String health = "";
+        
+            if(jSliderAddHealth.getValue()<4) {
+                health = "Diseased";
+            }else if(jSliderAddHealth.getValue()>=4 && jSliderAddHealth.getValue()<7 ) {
+                health = "Normal";
+            }else{
+                health = "Healthy";    
+            }
+            
             showpopup();
           
-            databaseOperations.addAnimal(type,name,age,gender,sterilize,length,weight,place);
+            databaseOperations.addAnimal(type,name,age,gender,sterilize,length,weight,place,health);
             
             showTable();
              
@@ -1449,7 +1473,20 @@ public class ShelterGui extends javax.swing.JFrame {
         String length = displayAnimalLengthInput.getText();
         String weight = displayAnimalWeightInput.getText();
         String place = displayAnimalPlaceCombo.getSelectedItem().toString();
-                
+        
+        
+        String health = "";
+        
+        if(jSliderUpdateHealth.getValue()<4) {
+            health = "Diseased";
+        }else if(jSliderUpdateHealth.getValue()>=4 && jSliderUpdateHealth.getValue()<7 ) {
+            health = "Normal";
+        }else{
+            health = "Healthy";    
+        }
+        
+        System.out.println("health " + health);
+               
         int selectedRow = displayAnimalTable.getSelectedRow();
       
         if(selectedRow == -1){
@@ -1463,7 +1500,7 @@ public class ShelterGui extends javax.swing.JFrame {
         else{
             int id = (int) model.getValueAt(selectedRow, 0);
             
-            databaseOperations.updateAnimal(id,type,name,age,gender,sterilize,length,weight,place);
+            databaseOperations.updateAnimal(id,type,name,age,gender,sterilize,length,weight,place,health);
             showTable();
 
             displayAnimalWarningMessage.setText("Update successfully.");

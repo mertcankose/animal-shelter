@@ -1,4 +1,3 @@
-
 package animalshelter;
 
 // import com.mysql.cj.xdevapi.Statement;
@@ -17,8 +16,42 @@ public class DatabaseOperations {
     private Statement statement = null;
     private PreparedStatement prepareStatement = null;
     
-    public ArrayList<Animal> getAnimals(){
-        ArrayList<Animal> output = new ArrayList<Animal>();
+    public ArrayList<Dog> getDogs(){
+        ArrayList<Dog> outputDog = new ArrayList<Dog>();
+        try {
+            statement = con.createStatement();
+            
+            String query = "Select * From animals";
+            
+            ResultSet rs = statement.executeQuery(query);
+            
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String name = rs.getString("name");
+                String age = rs.getString("age");
+                String gender = rs.getString("gender");
+                String sterilize = rs.getString("sterilize");
+                String length = rs.getString("length");
+                String weight = rs.getString("weight");
+                String place = rs.getString("place");
+                String health = rs.getString("health");
+                
+                if(type.equals("Dog")){
+                    //output.add(new Dog(id,type,name,age,gender,sterilize,length,weight,place,health));
+                    outputDog.add(new Dog(id,type,name,age,gender,sterilize,length,weight,place,health));
+                }     
+            }
+            return outputDog;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public ArrayList<Cat> getCats(){
+        ArrayList<Cat> outputCat = new ArrayList<Cat>();
         
         try {
             statement = con.createStatement();
@@ -37,26 +70,58 @@ public class DatabaseOperations {
                 String length = rs.getString("length");
                 String weight = rs.getString("weight");
                 String place = rs.getString("place");
+                String health = rs.getString("health");
                 
-                if(type.equals("Dog")){
-                    output.add(new Dog(id,type,name,age,gender,sterilize,length,weight,place));
-                }
                 if(type.equals("Cat")){
-                    output.add(new Cat(id,type,name,age,gender,sterilize,length,weight,place));
-                }
-                if(type.equals("Bird")){
-                    output.add(new Bird(id,type,name,age,gender,sterilize,length,weight,place));
-                }
+                    //output.add(new Cat(id,type,name,age,gender,sterilize,length,weight,place,health));
+                    outputCat.add(new Cat(id,type,name,age,gender,sterilize,length,weight,place,health));
+                }  
             }
-            return output;
+            return outputCat;
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
-    public void addAnimal(String type,String name, String age,String gender,String sterilize,String length,String weight, String place){
-        String query = "Insert Into animals (type,name,age,gender,sterilize,length,weight,place) VALUES(?,?,?,?,?,?,?,?)";
+    
+    public ArrayList<Bird> getBirds(){
+        ArrayList<Bird> outputBird = new ArrayList<Bird>();
+        
+        try {
+            statement = con.createStatement();
+            
+            String query = "Select * From animals";
+            
+            ResultSet rs = statement.executeQuery(query);
+            
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String type = rs.getString("type");
+                String name = rs.getString("name");
+                String age = rs.getString("age");
+                String gender = rs.getString("gender");
+                String sterilize = rs.getString("sterilize");
+                String length = rs.getString("length");
+                String weight = rs.getString("weight");
+                String place = rs.getString("place");
+                String health = rs.getString("health");
+                
+                if(type.equals("Bird")){
+                    //output.add(new Bird(id,type,name,age,gender,sterilize,length,weight,place,health));
+                    outputBird.add(new Bird(id,type,name,age,gender,sterilize,length,weight,place,health));
+                }
+            }
+            return outputBird;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+        
+    public void addAnimal(String type,String name, String age,String gender,String sterilize,String length,String weight, String place,String health){
+        String query = "Insert Into animals (type,name,age,gender,sterilize,length,weight,place,health) VALUES(?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
@@ -68,6 +133,7 @@ public class DatabaseOperations {
             prepareStatement.setString(6, length);
             prepareStatement.setString(7, weight);
             prepareStatement.setString(8, place);
+            prepareStatement.setString(9, health);
             
             prepareStatement.executeUpdate();
             
@@ -75,8 +141,8 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void updateAnimal(int id,String new_type,String new_name, String new_age, String new_gender,String new_sterilize,String new_length,String new_weight,String new_place){
-        String query = "Update animals set type = ?, name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ? where id = ?";
+    public void updateAnimal(int id,String new_type,String new_name, String new_age, String new_gender,String new_sterilize,String new_length,String new_weight,String new_place,String new_health){
+        String query = "Update animals set type = ?, name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, health = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -89,8 +155,9 @@ public class DatabaseOperations {
             prepareStatement.setString(6, new_length);
             prepareStatement.setString(7, new_weight);
             prepareStatement.setString(8, new_place);
+            prepareStatement.setString(9, new_health);
 
-            prepareStatement.setInt(9, id);
+            prepareStatement.setInt(10, id);
 
             prepareStatement.executeUpdate();
 
