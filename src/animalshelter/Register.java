@@ -14,7 +14,7 @@ public class Register extends javax.swing.JFrame {
     
     public Register() {
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -39,6 +39,7 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(250, 120, 0, 0));
+        setPreferredSize(new java.awt.Dimension(1430, 830));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
