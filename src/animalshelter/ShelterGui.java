@@ -38,7 +38,7 @@ public class ShelterGui extends javax.swing.JFrame {
     public ShelterGui() {
  
         initComponents();
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // setExtendedState(JFrame.MAXIMIZED_BOTH);
         //customCursor();
         
         model = (DefaultTableModel) displayAnimalTable.getModel();
@@ -217,6 +217,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setBounds(new java.awt.Rectangle(250, 120, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Menu.setBackground(new java.awt.Color(102, 102, 102));
@@ -288,6 +289,7 @@ public class ShelterGui extends javax.swing.JFrame {
         logOutButton.setForeground(new java.awt.Color(255, 255, 255));
         logOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout-icon.png"))); // NOI18N
         logOutButton.setText(" Logout");
+        logOutButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logOutButtonMouseClicked(evt);
@@ -1688,10 +1690,12 @@ public class ShelterGui extends javax.swing.JFrame {
 
     private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
         //Logout button
-        //this.setVisible(false);
+       
     
         Login login1 = new Login();
         login1.setVisible(true);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_logOutButtonMouseClicked
 
 
