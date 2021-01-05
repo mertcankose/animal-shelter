@@ -149,6 +149,8 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel6 = new jPanelGradient2();
         healthText = new javax.swing.JLabel();
         jSliderAddHealth = new javax.swing.JSlider();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
@@ -551,6 +553,12 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI Semilight", 2, 11)); // NOI18N
+        jLabel8.setText("KG");
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI Semilight", 2, 11)); // NOI18N
+        jLabel44.setText("CM");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -581,20 +589,24 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(sterilizeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(genderFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel44))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(225, 225, 225)
+                                .addGap(199, 199, 199)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(animalPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(194, 194, 194)
+                                .addGap(168, 168, 168)
                                 .addComponent(addAnimalWarningMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -633,11 +645,13 @@ public class ShelterGui extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel19)
-                                    .addComponent(animalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(animalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel18)
-                                    .addComponent(animalLength, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(animalLength, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel44)))
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -721,7 +735,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addAnimalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         Pannels.add(AddAnimalScreen, "card2");
@@ -1320,7 +1334,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addGroup(AboutScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         Pannels.add(AboutScreen, "card2");
@@ -1338,7 +1352,7 @@ public class ShelterGui extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, 733, Short.MAX_VALUE)
+            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
             .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1392,12 +1406,12 @@ public class ShelterGui extends javax.swing.JFrame {
         switchPanel(AboutScreen);
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    public void showpopup() {
+    /*public void showpopup() {
         String message = "ADDED !\n";
 
 
         JOptionPane.showMessageDialog(this, message);
-    }
+    }*/
 
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
 
@@ -1451,7 +1465,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 health = "Healthy";    
             }
             
-            showpopup();
+            JOptionPane.showMessageDialog(this, "Our " + type + " " + name + " " + "was succefully added");
           
             databaseOperations.addAnimal(type,name,age,gender,sterilize,length,weight,place,health);
             
@@ -1572,8 +1586,9 @@ public class ShelterGui extends javax.swing.JFrame {
     }//GEN-LAST:event_displayAnimalTableMouseClicked
 
     private void deleteAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAnimalButtonActionPerformed
-     
-        displayAnimalWarningMessage.setText("");     
+        
+        
+           displayAnimalWarningMessage.setText("");     
         
         int selectedRow = displayAnimalTable.getSelectedRow();
         
@@ -1586,7 +1601,10 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         }
         else{
-            int id = (int) model.getValueAt(selectedRow,0);
+            int opt = JOptionPane.showConfirmDialog(null, "All information about animal will gone, are you sure?", "Delete", JOptionPane.YES_NO_OPTION);
+            if (opt == 0)
+            {
+                int id = (int) model.getValueAt(selectedRow,0);
             databaseOperations.deleteAnimal(id);
             
             showTable();
@@ -1601,7 +1619,11 @@ public class ShelterGui extends javax.swing.JFrame {
             displayAnimalWeightInput.setText("");
             displayAnimalPlaceCombo.setSelectedItem("A");
             displayAnimalWarningMessage.setText("Animal deleted successfully.");
-        }
+            }
+            
+        } 
+        
+        
         /*
         model.removeRow(selectedRow);
         displayAnimalWarningMessage.setText("Animal deleted successfully.");
@@ -1801,6 +1823,7 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
@@ -1813,6 +1836,7 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
