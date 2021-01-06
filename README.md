@@ -11,5 +11,5 @@ CENG201 Project
 
 <!-- MARKDOWN & IMAGES -->
 
-[product-screenshot1]: Images/umlDiagram.png
+[product-screenshot1]: src/Images/umlDiagram.png
 
