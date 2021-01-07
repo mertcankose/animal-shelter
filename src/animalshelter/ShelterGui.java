@@ -1467,7 +1467,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 health = "Healthy";    
             }
             
-            JOptionPane.showMessageDialog(this, "Our " + type + " " + name + " " + "was succefully added");
+            JOptionPane.showMessageDialog(this, "Our " + type + " " + name + " " + "succefully added");
           
             databaseOperations.addAnimal(type,name,age,gender,sterilize,length,weight,place,health);
             
