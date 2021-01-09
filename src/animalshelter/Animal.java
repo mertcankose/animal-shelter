@@ -3,18 +3,19 @@ package animalshelter;
 
 public abstract class Animal implements IOzellik {
     private int id;
-    private String type;
     private String name;
-    private String age;
-    private String length;
-    private String weight;
+    private int age;
     private String gender;
+    private boolean isSterilize;
+    private double length;
+    private double weight;
     private String place;
-    private String isSterilize;
+    private String stateOfHealth;
+    private Personnel personnel;
+    private String personnelName;
     
-    public Animal(int id,String type, String name, String age, String gender,String isSterilize, String length, String weight, String place) {
+    public Animal(int id,String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth,String personnelName) {
         this.id = id;
-        this.type = type;
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -22,9 +23,19 @@ public abstract class Animal implements IOzellik {
         this.length = length;
         this.weight = weight;
         this.place = place;
+        this.stateOfHealth = stateOfHealth;
+        this.personnelName = personnelName;
     }
     
-    // public abstract void setHealth(String health);
+    public abstract int giveFood();
+
+    public Personnel getPersonnel() {
+        return personnel;
+    }
+
+    public void setPersonnel(Personnel personnel) {
+        this.personnel = personnel;
+    }
 
     public int getId() {
         return id;
@@ -34,15 +45,7 @@ public abstract class Animal implements IOzellik {
         this.id = id;
     }
     
-    public String getIsSterilize() {
-        return isSterilize;
-    }
 
-    public void setIsSterilize(String isSterilize) {
-        this.isSterilize = isSterilize;
-    }
-    
-    
     public String getName() {
         return name;
     }
@@ -51,35 +54,43 @@ public abstract class Animal implements IOzellik {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getAge() {
+    public double getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public String getLength() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public boolean isIsSterilize() {
+        return isSterilize;
+    }
+
+    public void setIsSterilize(boolean isSterilize) {
+        this.isSterilize = isSterilize;
+    }
+
+    public double getLength() {
         return length;
     }
 
-    public void setLength(String length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -91,21 +102,17 @@ public abstract class Animal implements IOzellik {
         this.place = place;
     }
 
-    public String getGender() {
-        return gender;
+    public String getStateOfHealth() {
+        return stateOfHealth;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setStateOfHealth(String stateOfHealth) {
+        this.stateOfHealth = stateOfHealth;
     }
 
     @Override
     public String toString() {
-        return "Animal{" + "type=" + type + ", name=" + name + ", age=" + age + ", length=" + length + ", weight=" + weight + ", gender=" + gender + ", place=" + place + ", isSterilize=" + isSterilize + '}';
+        return "Animal{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", isSterilize=" + isSterilize + ", length=" + length + ", weight=" + weight + ", place=" + place + ", stateOfHealth=" + stateOfHealth + '}';
     }
-
-  
-    
-    
 }
 
