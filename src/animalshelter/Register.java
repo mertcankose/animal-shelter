@@ -14,7 +14,7 @@ public class Register extends javax.swing.JFrame {
     
     public Register() {
         initComponents();
-        // setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
