@@ -108,11 +108,11 @@ public class Login extends javax.swing.JFrame {
         String password = new String(loginPasswordInput.getPassword());
         
         if(username.equals("admin") && password.equals("admin")){
-             Personnel personnel = new Personnel(username,true);
+             Personnel personnelLogined = new Personnel(username,true);
         }else{
-            Personnel personnel = new Personnel(username,false);
+            Personnel personnelLogined = new Personnel(username,false);
         }
-       
+      
         
         boolean login_success = databaseOperations.login(username,password);
         
