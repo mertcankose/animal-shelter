@@ -25,38 +25,38 @@ import javax.swing.table.TableRowSorter;
 
 
 public class ShelterGui extends javax.swing.JFrame {
-   
-    
+
+
     DefaultTableModel modelCat;
     DefaultTableModel modelBird;
     DefaultTableModel modelDog;
-    
+
     DatabaseOperations databaseOperations = new DatabaseOperations();
-    
-    
+
+
     // HashMap<String, String> animalInfos = new HashMap<String, String>();
 
     /**
      * Creates new form ShelterGui
      */
     public ShelterGui() {
- 
+
         initComponents();
         // setExtendedState(JFrame.MAXIMIZED_BOTH);
         //customCursor();
-        
+
         addScreenCatPanel.setVisible(true);
         addScreenBirdPanel.setVisible(false);
         addScreenDogPanel.setVisible(false);
-        
+
        displayScreenCatPanel.setVisible(false);
        displayScreenBirdPanel.setVisible(false);
        displayScreenDogPanel.setVisible(false);
-        
+
         modelCat = (DefaultTableModel) displayCatTable.getModel();
         modelBird = (DefaultTableModel) displayBirdTable.getModel();
         modelDog = (DefaultTableModel) displayDogTable.getModel();
-        
+
         showTable();
     }
 
@@ -75,7 +75,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
         }
     }
-    
+
     class jPanelGradient2 extends JPanel {
 
         protected void paintComponent(Graphics g) {
@@ -1771,12 +1771,12 @@ public class ShelterGui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public void showTable(){
         modelCat.setRowCount(0);
         modelBird.setRowCount(0);
         modelDog.setRowCount(0);
-        
+
         ArrayList<Dog> dogs = new ArrayList<Dog>();
         ArrayList<Cat> cats = new ArrayList<Cat>();
         ArrayList<Bird> birds = new ArrayList<Bird>();
@@ -1784,7 +1784,7 @@ public class ShelterGui extends javax.swing.JFrame {
         dogs =  databaseOperations.getDogs();
         cats =  databaseOperations.getCats();
         birds =  databaseOperations.getBirds();
-        
+
         if(dogs != null){
             for(Dog dog:dogs){
                 Object[] addedDog = {dog.getId(),dog.getName(),dog.getAge(),dog.getGender(),dog.isIsSterilize(),dog.getLength(),dog.getWeight(),dog.getPlace(),dog.getStateOfHealth(),dog.getStrain(),dog.getHungerRatio(),dog.getPersonnel()};
@@ -1804,7 +1804,7 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         switchPanel(HomeScreen);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -1831,76 +1831,76 @@ public class ShelterGui extends javax.swing.JFrame {
     private void addAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAnimalButtonActionPerformed
 
         addAnimalWarningMessage.setText("");
-        
+
         //animal name
         String name = animalName.getText();
-        
+
         if(name.trim().equals("")){
             addAnimalWarningMessage.setText("Name field can't be empty!");
         }
         else{
-      
+
             //animal age
-            
+
             int age = Integer.parseInt(animalAge.getText());
-            
+
             // animal gender
             String gender = "";
             if(genderFemale.isSelected()){
                 gender = "Female";
             }
             else if(genderMale.isSelected()){
-                gender = "Male";    
+                gender = "Male";
             }
-            
+
             // sterilize
             boolean sterilize = false;
             if(sterilizeNo.isSelected()){
-                sterilize = false;   
+                sterilize = false;
             }
             else if(sterilizeYes.isSelected()){
-                sterilize = true;    
-            } 
+                sterilize = true;
+            }
             //animal length - weight
             double length = Double.parseDouble(animalLength.getText());
             double weight = Double.parseDouble(animalWeight.getText());
 
             //animal place
             String place = (String) animalPlace.getSelectedItem();
-            
-            
+
+
             String health = "";
-        
+
             if(jSliderAddHealth.getValue()<4) {
                 health = "Diseased";
             }else if(jSliderAddHealth.getValue()>=4 && jSliderAddHealth.getValue()<7 ) {
                 health = "Normal";
             }else{
-                health = "Healthy";    
+                health = "Healthy";
             }
-            
+
             //agressive-cat
             boolean agressive = false;
             if(isAgressiveCatYes.isSelected()){
                 agressive = true;
             }
-            
+
             //strain-bird-dog
             String birdStrain = strainBird.getText();
             String dogStrain = strainDog.getText();
-            
+
             //talk-bird
             boolean isTalk = false;
             if(isTalkBirdYes.isSelected()){
                 isTalk = true;
             }
-            
+
             Personnel personnel = new Personnel("mert",true);
             if(addScreenTypeCat.isSelected()){
                 databaseOperations.addCat(name,age,gender,sterilize,length,weight,place,health,agressive,10,personnel);
                 JOptionPane.showMessageDialog(this, "Our " + name + " " + name + " " + "succefully added");
             }
-            
+
             if(addScreenTypeBird.isSelected()){
                 databaseOperations.addBird(name,age,gender,sterilize,length,weight,place,health,birdStrain,isTalk,10,personnel);
                 JOptionPane.showMessageDialog(this, "Our " + name + " " + name + " " + "succefully added");
@@ -1909,69 +1909,69 @@ public class ShelterGui extends javax.swing.JFrame {
                 databaseOperations.addDog(name,age,gender,sterilize,length,weight,place,health,dogStrain,10,personnel);
                 JOptionPane.showMessageDialog(this, "Our " + name + " " + name + " " + "succefully added");
             }
-            
+
             showTable();
-             
+
             /*
             Object[] added = {type,name,age,gender,sterilize,length,weight,place};
             model.addRow(added);
             */
-        
+
         }
-        
+
     }//GEN-LAST:event_addAnimalButtonActionPerformed
 
     private void updateAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAnimalButtonActionPerformed
-        
-          
-        
-        
-        
-        
+
+
+
+
+
+
     }//GEN-LAST:event_updateAnimalButtonActionPerformed
 
     private void displayAnimalSterilizeYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAnimalSterilizeYesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_displayAnimalSterilizeYesActionPerformed
-                                                                                    
+
 
     private void deleteAnimalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAnimalButtonActionPerformed
-        
-        
-           displayAnimalWarningMessage.setText("");     
-        
-            
-       
-        
-        
+
+
+           displayAnimalWarningMessage.setText("");
+
+
+
+
+
         /*
         model.removeRow(selectedRow);
         displayAnimalWarningMessage.setText("Animal deleted successfully.");
-        */    
+        */
 
-      
-        
-        
+
+
+
     }//GEN-LAST:event_deleteAnimalButtonActionPerformed
 
     public void dynamicSearch(String search){
         TableRowSorter<DefaultTableModel> tableRow1 = new TableRowSorter<DefaultTableModel>(modelCat);
         TableRowSorter<DefaultTableModel> tableRow2 = new TableRowSorter<DefaultTableModel>(modelBird);
         TableRowSorter<DefaultTableModel> tableRow3 = new TableRowSorter<DefaultTableModel>(modelDog);
-        
+
         displayCatTable.setRowSorter(tableRow1);
         displayBirdTable.setRowSorter(tableRow2);
         displayDogTable.setRowSorter(tableRow3);
-        
+
         tableRow1.setRowFilter(RowFilter.regexFilter(search));
         tableRow2.setRowFilter(RowFilter.regexFilter(search));
         tableRow3.setRowFilter(RowFilter.regexFilter(search));
     }
     private void searchBarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchBarKeyReleased
        String search  = searchBar.getText();
-       
+
        dynamicSearch(search);
-        
+
     }//GEN-LAST:event_searchBarKeyReleased
 
     private void githubMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_githubMouseClicked
@@ -2037,11 +2037,11 @@ public class ShelterGui extends javax.swing.JFrame {
 
     private void logOutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutButtonMouseClicked
         //Logout button
-       
-    
+
+
         Login login1 = new Login();
         login1.setVisible(true);
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_logOutButtonMouseClicked
 
@@ -2068,35 +2068,35 @@ public class ShelterGui extends javax.swing.JFrame {
        displayScreenCatPanel.setVisible(false);
        displayScreenBirdPanel.setVisible(false);
        displayScreenDogPanel.setVisible(true);
-       
+
         int selectedRow = displayCatTable.getSelectedRow();
-            
+
         displayAnimalNameInput.setText(modelCat.getValueAt(selectedRow,1).toString());
         displayAnimalAgeInput.setText(modelCat.getValueAt(selectedRow,2).toString());
         String gender = modelCat.getValueAt(selectedRow, 3).toString();
-        
+
         if(gender.equals("Male")){
             displayAnimalGenderMale.setSelected(true);
         }
         else if(gender.equals("Female")){
             displayAnimalGenderFemale.setSelected(true);
         }
-        
+
         String sterilize = modelCat.getValueAt(selectedRow,4).toString();
-        
+
         if(sterilize.equals("Yes")){
             displayAnimalSterilizeYes.setSelected(true);
         }
         else if(sterilize.equals("No")){
             displayAnimalSterilizeNo.setSelected(true);
         }
-        
+
         displayAnimalLengthInput.setText(modelCat.getValueAt(selectedRow,5).toString());
         displayAnimalWeightInput.setText(modelCat.getValueAt(selectedRow,6).toString());
         displayAnimalPlaceCombo.setSelectedItem(modelCat.getValueAt(selectedRow,7).toString());
         displayStrainDog.setText(modelCat.getValueAt(selectedRow,9).toString());
-        
-        
+
+
     }//GEN-LAST:event_displayDogTableMouseClicked
 
     private void displayBirdTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayBirdTableMouseClicked
@@ -2104,42 +2104,42 @@ public class ShelterGui extends javax.swing.JFrame {
         displayScreenCatPanel.setVisible(false);
        displayScreenBirdPanel.setVisible(true);
        displayScreenDogPanel.setVisible(false);
-       
+
         int selectedRow = displayCatTable.getSelectedRow();
-            
+
         displayAnimalNameInput.setText(modelCat.getValueAt(selectedRow,1).toString());
         displayAnimalAgeInput.setText(modelCat.getValueAt(selectedRow,2).toString());
         String gender = modelCat.getValueAt(selectedRow, 3).toString();
-        
+
         if(gender.equals("Male")){
             displayAnimalGenderMale.setSelected(true);
         }
         else if(gender.equals("Female")){
             displayAnimalGenderFemale.setSelected(true);
         }
-        
+
         String sterilize = modelCat.getValueAt(selectedRow,4).toString();
-        
+
         if(sterilize.equals("Yes")){
             displayAnimalSterilizeYes.setSelected(true);
         }
         else if(sterilize.equals("No")){
             displayAnimalSterilizeNo.setSelected(true);
         }
-        
+
         displayAnimalLengthInput.setText(modelCat.getValueAt(selectedRow,5).toString());
         displayAnimalWeightInput.setText(modelCat.getValueAt(selectedRow,6).toString());
         displayAnimalPlaceCombo.setSelectedItem(modelCat.getValueAt(selectedRow,7).toString());
         displayStrainBird.setText(modelCat.getValueAt(selectedRow,9).toString());
-        
+
         String isTalk = modelCat.getValueAt(selectedRow,9).toString();
-        
+
         if(isTalk.equals("1")){
              displayIsAgressiveCatYes.setSelected(true);
         }else if(isTalk.equals("0")){
              displayIsAgressiveCatNo.setSelected(true);
         }
-        
+
         displayIsAgressiveCatYes.setSelected(true);
     }//GEN-LAST:event_displayBirdTableMouseClicked
 
@@ -2148,45 +2148,45 @@ public class ShelterGui extends javax.swing.JFrame {
        displayScreenCatPanel.setVisible(true);
        displayScreenBirdPanel.setVisible(false);
        displayScreenDogPanel.setVisible(false);
-       
+
        int selectedRow = displayCatTable.getSelectedRow();
-            
+
         displayAnimalNameInput.setText(modelCat.getValueAt(selectedRow,1).toString());
         displayAnimalAgeInput.setText(modelCat.getValueAt(selectedRow,2).toString());
         String gender = modelCat.getValueAt(selectedRow, 3).toString();
-        
-        
+
+
         if(gender.equals("Male")){
             displayAnimalGenderMale.setSelected(true);
         }
         else if(gender.equals("Female")){
             displayAnimalGenderFemale.setSelected(true);
         }
-        
+
         String sterilize = modelCat.getValueAt(selectedRow,4).toString();
-        
+
         if(sterilize.equals("Yes")){
             displayAnimalSterilizeYes.setSelected(true);
         }
         else if(sterilize.equals("No")){
             displayAnimalSterilizeNo.setSelected(true);
         }
-        
+
         displayAnimalLengthInput.setText(modelCat.getValueAt(selectedRow,5).toString());
         displayAnimalWeightInput.setText(modelCat.getValueAt(selectedRow,6).toString());
         displayAnimalPlaceCombo.setSelectedItem(modelCat.getValueAt(selectedRow,7).toString());
-        
+
         String agressive = modelCat.getValueAt(selectedRow,9).toString();
-        
+
         if(agressive.equals("1")){
              displayIsAgressiveCatYes.setSelected(true);
         }else if(agressive.equals("0")){
              displayIsAgressiveCatNo.setSelected(true);
         }
-        
+
         displayIsAgressiveCatYes.setSelected(true);
-       
-       
+
+
     }//GEN-LAST:event_displayCatTableMouseClicked
 
     private void findLifeTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findLifeTimeButtonActionPerformed
@@ -2198,7 +2198,7 @@ public class ShelterGui extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
