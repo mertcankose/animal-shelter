@@ -140,7 +140,7 @@ public class DatabaseOperations {
             prepareStatement.setBoolean(9, agressive);
             prepareStatement.setInt(10, hungerRatio);
             prepareStatement.setString(11, personnel.getName());
-            
+            System.out.println("databasee yollanacak: " + personnel.getName());
             prepareStatement.executeUpdate();
             
         } catch (SQLException ex) {
@@ -223,8 +223,8 @@ public class DatabaseOperations {
     
     
     
-    public void updateCat(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,boolean new_agressive,int new_hungerRatio,String new_personnel){
-        String query = "Update animals set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, agressive = ?, hungerRatio = ?, personnel = ? where id = ?";
+    public void updateCat(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,boolean new_agressive,int new_hungerRatio){
+        String query = "Update cats set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, agressive = ?, hungerRatio = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -240,9 +240,8 @@ public class DatabaseOperations {
             prepareStatement.setString(8, new_health);
             prepareStatement.setBoolean(9, new_agressive);
             prepareStatement.setInt(10, new_hungerRatio);
-            prepareStatement.setString(11, new_personnel);
 
-            prepareStatement.setInt(12, id);
+            prepareStatement.setInt(11, id);
 
             prepareStatement.executeUpdate();
 
@@ -251,8 +250,8 @@ public class DatabaseOperations {
         }
     }
     
-    public void updateBird(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,boolean new_talk,int new_hungerRatio,String new_personnel){
-        String query = "Update animals set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?,talk = ?, hungerRatio = ?, personnel = ? where id = ?";
+    public void updateBird(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,boolean new_talk,int new_hungerRatio){
+        String query = "Update birds set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?,talk = ?, hungerRatio = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -269,9 +268,8 @@ public class DatabaseOperations {
             prepareStatement.setString(9, new_strain);
             prepareStatement.setBoolean(10, new_talk);
             prepareStatement.setInt(11, new_hungerRatio);
-            prepareStatement.setString(12, new_personnel);
 
-            prepareStatement.setInt(13, id);
+            prepareStatement.setInt(12, id);
 
             prepareStatement.executeUpdate();
 
@@ -280,8 +278,8 @@ public class DatabaseOperations {
         }
     }
     
-     public void updateDog(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,int new_hungerRatio,String new_personnel){
-        String query = "Update animals set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?, hungerRatio = ?, personnel = ? where id = ?";
+     public void updateDog(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,int new_hungerRatio){
+        String query = "Update dogs set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?, hungerRatio = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -297,9 +295,8 @@ public class DatabaseOperations {
             prepareStatement.setString(8, new_health);
             prepareStatement.setString(9, new_strain);
             prepareStatement.setInt(10, new_hungerRatio);
-            prepareStatement.setString(11, new_personnel);
 
-            prepareStatement.setInt(12, id);
+            prepareStatement.setInt(11, id);
 
             prepareStatement.executeUpdate();
 

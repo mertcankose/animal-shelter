@@ -102,19 +102,24 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        ShelterGui shelter = new ShelterGui();
+        
         
         String username = loginUsernameInput.getText();
         String password = new String(loginPasswordInput.getPassword());
         
-        if(username.equals("admin") && password.equals("admin")){
-             Personnel personnelLogined = new Personnel(username,true);
-        }else{
-            Personnel personnelLogined = new Personnel(username,false);
-        }
+        boolean authority = false;
       
+        if(username.equals("admin") && password.equals("admin")){
+             authority = true;
+        }else{
+             authority = false;
+        }
         
+        // Personnel personnelLogined = new Personnel(username,password,authority);
+      
         boolean login_success = databaseOperations.login(username,password);
+        
+        ShelterGui shelter = new ShelterGui(username,password,authority);
         
         if(login_success){
             shelter.setVisible(true);

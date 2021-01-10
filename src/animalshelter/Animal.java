@@ -29,6 +29,14 @@ public abstract class Animal implements IOzellik {
     
     public abstract int giveFood();
 
+    public String getPersonnelName() {
+        return personnelName;
+    }
+
+    public void setPersonnelName(String personnelName) {
+        this.personnelName = personnelName;
+    }
+
     public Personnel getPersonnel() {
         return personnel;
     }
