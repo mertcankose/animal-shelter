@@ -1910,7 +1910,7 @@ public class ShelterGui extends javax.swing.JFrame {
     }//GEN-LAST:event_displayCatTableMouseClicked
 
     private void findLifeTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findLifeTimeButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_findLifeTimeButtonActionPerformed
 
     /*public void showpopup() {
