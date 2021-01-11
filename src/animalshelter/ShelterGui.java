@@ -63,6 +63,7 @@ public class ShelterGui extends javax.swing.JFrame {
         modelCat = (DefaultTableModel) displayCatTable.getModel();
         modelBird = (DefaultTableModel) displayBirdTable.getModel();
         modelDog = (DefaultTableModel) displayDogTable.getModel();
+        
 
         showTable();
     }
@@ -526,7 +527,6 @@ public class ShelterGui extends javax.swing.JFrame {
 
         addScreenTypeCat.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup3.add(addScreenTypeCat);
-        addScreenTypeCat.setSelected(true);
         addScreenTypeCat.setText("Cat");
         addScreenTypeCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -770,7 +770,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
         catIconLabel.setVisible(false);
         catIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cc.gif"))); // NOI18N
-        jPanel1.add(catIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 440, 360));
+        jPanel1.add(catIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 440, 360));
 
         birdIcon.setVisible(false);
         birdIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/birdGif.gif"))); // NOI18N
