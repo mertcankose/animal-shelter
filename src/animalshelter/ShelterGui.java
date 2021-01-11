@@ -1934,17 +1934,17 @@ public class ShelterGui extends javax.swing.JFrame {
             if(selectedRowCat != -1){
                 Cat cat = new Cat(name,age);
                 int remainingCatLifeTime = cat.findRemainingLifeTime();
-                animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
+                animalLifeTimeText.setText("Average Remaining Life Expectancy: " +  remainingCatLifeTime);
             }
             if(selectedRowDog != -1){
                Dog dog = new Dog(name,age);
                int remainingCatLifeTime = dog.findRemainingLifeTime();
-               animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Average Remaining Life Expectancy: " +  remainingCatLifeTime);
             }
             if(selectedRowBird != -1){
                Bird bird = new Bird(name,age);
                int remainingCatLifeTime = bird.findRemainingLifeTime();
-               animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Average Remaining Life Expectancy: " +  remainingCatLifeTime);
             }
         }        
     }//GEN-LAST:event_findLifeTimeButtonActionPerformed
@@ -2105,10 +2105,12 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         } else {
             int id = (int) modelDog.getValueAt(selectedRow, 0);
+            String name = modelDog.getValueAt(selectedRow,1).toString();
             if(personnel.getAuthority() == true){
                 databaseOperations.deleteDog(id);
                 showTable();
-                displayAnimalWarningMessage.setText("Sucessfully deleted."); 
+                JOptionPane.showMessageDialog(this,name + " Successfully Deleted");
+                // displayAnimalWarningMessage.setText("Sucessfully deleted."); 
             }else{
                 displayAnimalWarningMessage.setText("You are not admin. You can't delete!");
             }
@@ -2129,10 +2131,12 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         } else {
             int id = (int) modelCat.getValueAt(selectedRow, 0);
+            String name = modelCat.getValueAt(selectedRow,1).toString();
             if(personnel.getAuthority() == true){
                 databaseOperations.deleteCat(id);
                 showTable();
-                displayAnimalWarningMessage.setText("Sucessfully deleted.");
+                JOptionPane.showMessageDialog(this,name + " Successfully Deleted");
+                // displayAnimalWarningMessage.setText("Sucessfully deleted.");
             }else{
                 displayAnimalWarningMessage.setText("You are not admin. You can't delete!");
             }
@@ -2152,14 +2156,15 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         } else {
             int id = (int) modelBird.getValueAt(selectedRow, 0);
+            String name = modelBird.getValueAt(selectedRow,1).toString();
             if(personnel.getAuthority() == true){
                 databaseOperations.deleteBird(id);
                 showTable();
-                displayAnimalWarningMessage.setText("Sucessfully deleted.");
+                JOptionPane.showMessageDialog(this,name + " Successfully Deleted");
+                // displayAnimalWarningMessage.setText("Sucessfully deleted.");
             }else{
                 displayAnimalWarningMessage.setText("You are not admin. You can't delete!");
             }
-
         }
     }//GEN-LAST:event_deleteBirdButtonActionPerformed
 
