@@ -116,9 +116,6 @@ public class Register extends javax.swing.JFrame {
         
         databaseOperations.register(username,password);
         
-        //ArrayList<User> user_list = ShelterGui.getUser_list();
-        //user_list.add(new User(email,password));
-        
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed

@@ -606,17 +606,15 @@
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                                              <Component id="catIconLabel" min="-2" pref="327" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                                              <Component id="catIconLabel" min="-2" pref="344" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                                       <Component id="dogIcon" min="-2" pref="465" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="birdIcon" min="-2" pref="309" max="-2" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="birdIcon" alignment="0" min="-2" pref="309" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
@@ -718,15 +716,12 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="catIconLabel" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="birdIcon" min="-2" pref="187" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                               <Component id="dogIcon" min="-2" pref="276" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="catIconLabel" pref="0" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
@@ -1472,7 +1467,7 @@
                               <Table columnCount="13" rowCount="0">
                                 <Column editable="false" title="Id" type="java.lang.Object"/>
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
-                                <Column editable="false" title="Age" type="java.lang.Object"/>
+                                <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                                 <Column editable="false" title="Sterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
@@ -1593,7 +1588,7 @@
                               <Table columnCount="12" rowCount="0">
                                 <Column editable="false" title="Id" type="java.lang.Object"/>
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
-                                <Column editable="false" title="Age" type="java.lang.Object"/>
+                                <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                                 <Column editable="false" title="Sterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
@@ -1703,7 +1698,7 @@
                               <Table columnCount="12" rowCount="0">
                                 <Column editable="false" title="Id" type="java.lang.Object"/>
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
-                                <Column editable="false" title="Age" type="java.lang.Object"/>
+                                <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                                 <Column editable="false" title="Sterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
@@ -2357,7 +2352,7 @@
                         <Component class="javax.swing.JLabel" name="animalLifeTimeText">
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="790" y="210" width="190" height="30"/>
+                              <AbsoluteConstraints x="690" y="190" width="330" height="30"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -2414,7 +2409,7 @@
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="860" y="50" width="130" height="30"/>
+                              <AbsoluteConstraints x="860" y="90" width="130" height="30"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -2427,7 +2422,7 @@
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="860" y="90" width="130" height="30"/>
+                              <AbsoluteConstraints x="860" y="50" width="130" height="30"/>
                             </Constraint>
                           </Constraints>
                         </Component>

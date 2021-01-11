@@ -18,6 +18,10 @@ public class Dog extends Animal {
         executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS); 
     }
 
+    public Dog(String name, int age) {
+        super(name,age);
+    }
+
     public String getStrain() {
         return strain;
     }
@@ -44,7 +48,12 @@ public class Dog extends Animal {
 
     @Override
     public int findRemainingLifeTime() {
-        return (int) (dogAverageLifeTime - this.getAge());
+        int time = (int) (dogAverageLifeTime - this.getAge());
+        if(time < 0){
+            return 0;
+        }else{
+            return time;
+        }
     }
 
     @Override

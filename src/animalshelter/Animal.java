@@ -27,23 +27,12 @@ public abstract class Animal implements IOzellik {
         this.personnelName = personnelName;
     }
     
+    public Animal(String name,int age){
+        this.name = name;
+        this.age = age;        
+    }
+    
     public abstract int giveFood();
-
-    public String getPersonnelName() {
-        return personnelName;
-    }
-
-    public void setPersonnelName(String personnelName) {
-        this.personnelName = personnelName;
-    }
-
-    public Personnel getPersonnel() {
-        return personnel;
-    }
-
-    public void setPersonnel(Personnel personnel) {
-        this.personnel = personnel;
-    }
 
     public int getId() {
         return id;
@@ -52,7 +41,6 @@ public abstract class Animal implements IOzellik {
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public String getName() {
         return name;
@@ -62,7 +50,7 @@ public abstract class Animal implements IOzellik {
         this.name = name;
     }
 
-    public double getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -118,9 +106,27 @@ public abstract class Animal implements IOzellik {
         this.stateOfHealth = stateOfHealth;
     }
 
+    public Personnel getPersonnel() {
+        return personnel;
+    }
+
+    public void setPersonnel(Personnel personnel) {
+        this.personnel = personnel;
+    }
+
+    public String getPersonnelName() {
+        return personnelName;
+    }
+
+    public void setPersonnelName(String personnelName) {
+        this.personnelName = personnelName;
+    }
+
     @Override
     public String toString() {
-        return "Animal{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", isSterilize=" + isSterilize + ", length=" + length + ", weight=" + weight + ", place=" + place + ", stateOfHealth=" + stateOfHealth + '}';
+        return "Animal{" + "id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", isSterilize=" + isSterilize + ", length=" + length + ", weight=" + weight + ", place=" + place + ", stateOfHealth=" + stateOfHealth + ", personnel=" + personnel + ", personnelName=" + personnelName + '}';
     }
+
+    
 }
 
