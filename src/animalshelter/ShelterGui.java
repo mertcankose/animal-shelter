@@ -180,10 +180,10 @@ public class ShelterGui extends javax.swing.JFrame {
         isTalkBirdYes = new javax.swing.JRadioButton();
         isTalkBirdNo = new javax.swing.JRadioButton();
         jLabel55 = new javax.swing.JLabel();
-        strainBird = new javax.swing.JTextField();
+        typeBird = new javax.swing.JTextField();
         addScreenDogPanel = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
-        strainDog = new javax.swing.JTextField();
+        typeDog = new javax.swing.JTextField();
         addScreenCatPanel = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         isAgressiveCatYes = new javax.swing.JRadioButton();
@@ -510,7 +510,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel16.setText("Type :");
+        jLabel16.setText("Animal :");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(0, 153, 0));
@@ -649,7 +649,7 @@ public class ShelterGui extends javax.swing.JFrame {
         addScreenBirdPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel56.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel56.setText("Is Talk:");
+        jLabel56.setText("Is Talk :");
 
         isTalkBirdYes.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup5.add(isTalkBirdYes);
@@ -660,9 +660,9 @@ public class ShelterGui extends javax.swing.JFrame {
         isTalkBirdNo.setText("No");
 
         jLabel55.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel55.setText("Strain:");
+        jLabel55.setText("Type :");
 
-        strainBird.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        typeBird.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout addScreenBirdPanelLayout = new javax.swing.GroupLayout(addScreenBirdPanel);
         addScreenBirdPanel.setLayout(addScreenBirdPanelLayout);
@@ -679,7 +679,7 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addComponent(isTalkBirdYes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(isTalkBirdNo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(strainBird, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeBird, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addScreenBirdPanelLayout.setVerticalGroup(
@@ -693,7 +693,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(addScreenBirdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel55)
-                    .addComponent(strainBird, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeBird, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -702,9 +702,9 @@ public class ShelterGui extends javax.swing.JFrame {
         addScreenDogPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel57.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel57.setText("Strain:");
+        jLabel57.setText("Type :");
 
-        strainDog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        typeDog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout addScreenDogPanelLayout = new javax.swing.GroupLayout(addScreenDogPanel);
         addScreenDogPanel.setLayout(addScreenDogPanelLayout);
@@ -714,8 +714,8 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel57)
                 .addGap(18, 18, 18)
-                .addComponent(strainDog, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(typeDog, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addScreenDogPanelLayout.setVerticalGroup(
             addScreenDogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,7 +723,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(addScreenDogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57)
-                    .addComponent(strainDog, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeDog, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -732,7 +732,7 @@ public class ShelterGui extends javax.swing.JFrame {
         addScreenCatPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel54.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        jLabel54.setText("Is Agressive:");
+        jLabel54.setText("Is Agressive :");
 
         isAgressiveCatYes.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup4.add(isAgressiveCatYes);
@@ -753,7 +753,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(isAgressiveCatYes)
                 .addGap(18, 18, 18)
                 .addComponent(isAgressiveCatNo)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         addScreenCatPanelLayout.setVerticalGroup(
             addScreenCatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,7 +769,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel1.add(addScreenCatPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 310, 50));
 
         catIconLabel.setVisible(false);
-        catIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/giphy_1.gif"))); // NOI18N
+        catIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cc.gif"))); // NOI18N
         jPanel1.add(catIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 440, 360));
 
         birdIcon.setVisible(false);
@@ -1006,6 +1006,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, -1));
 
         displayAnimalGenderMale.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(displayAnimalGenderMale);
         displayAnimalGenderMale.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         displayAnimalGenderMale.setText("Male");
         displayAnimalGenderMale.addActionListener(new java.awt.event.ActionListener() {
@@ -1016,6 +1017,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel2.add(displayAnimalGenderMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
         displayAnimalGenderFemale.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(displayAnimalGenderFemale);
         displayAnimalGenderFemale.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         displayAnimalGenderFemale.setText("Female");
         displayAnimalGenderFemale.addActionListener(new java.awt.event.ActionListener() {
@@ -1101,7 +1103,7 @@ public class ShelterGui extends javax.swing.JFrame {
             displayScreenCatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayScreenCatPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(displayIsAgressiveCatYes)
                 .addGap(18, 18, 18)
@@ -1189,7 +1191,7 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addComponent(displayIsTalkBirdYes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(displayIsTalkBirdNo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 3, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(displayStrainBird))
                 .addContainerGap())
         );
@@ -2001,8 +2003,8 @@ public class ShelterGui extends javax.swing.JFrame {
             }
 
             //strain-bird-dog
-            String birdStrain = strainBird.getText();
-            String dogStrain = strainDog.getText();
+            String birdStrain = typeBird.getText();
+            String dogStrain = typeDog.getText();
 
             //talk-bird
             boolean isTalk = false;
@@ -2526,8 +2528,8 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JTextField searchBar;
     private javax.swing.JRadioButton sterilizeNo;
     private javax.swing.JRadioButton sterilizeYes;
-    private javax.swing.JTextField strainBird;
-    private javax.swing.JTextField strainDog;
+    private javax.swing.JTextField typeBird;
+    private javax.swing.JTextField typeDog;
     private javax.swing.JButton updateBirdButton;
     private javax.swing.JButton updateCatButton;
     private javax.swing.JButton updateDogButton;
