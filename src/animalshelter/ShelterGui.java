@@ -256,7 +256,6 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton = new javax.swing.JButton();
         updateCatButton = new javax.swing.JButton();
         jPanel8 = new jPanelGradient2();
-        refreshTablesButton = new javax.swing.JButton();
         AboutScreen = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -1127,12 +1126,11 @@ public class ShelterGui extends javax.swing.JFrame {
         displayScreenCatPanelLayout.setVerticalGroup(
             displayScreenCatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayScreenCatPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(displayScreenCatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(displayIsAgressiveCatNo)
+                    .addComponent(jLabel65)
                     .addComponent(displayIsAgressiveCatYes)
-                    .addComponent(jLabel65))
-                .addContainerGap(8, Short.MAX_VALUE))
+                    .addComponent(displayIsAgressiveCatNo))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         jPanel2.add(displayScreenCatPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 230, 50));
@@ -1165,7 +1163,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel2.add(displayScreenDogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 220, 50));
+        jPanel2.add(displayScreenDogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 220, 50));
 
         displayScreenBirdPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1224,7 +1222,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(displayScreenBirdPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 220, 80));
+        jPanel2.add(displayScreenBirdPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 220, 80));
 
         healthUpdateText.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         jPanel2.add(healthUpdateText, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 120, 30));
@@ -1236,12 +1234,15 @@ public class ShelterGui extends javax.swing.JFrame {
             }
         });
         jPanel2.add(findLifeTimeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 130, 34));
-        jPanel2.add(animalLifeTimeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 380, 30));
+
+        animalLifeTimeText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        animalLifeTimeText.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel2.add(animalLifeTimeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 340, 30));
 
         displayAnimalWarningMessage.setBackground(new java.awt.Color(204, 153, 0));
         displayAnimalWarningMessage.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         displayAnimalWarningMessage.setForeground(new java.awt.Color(204, 0, 0));
-        jPanel2.add(displayAnimalWarningMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 180, 220, 35));
+        jPanel2.add(displayAnimalWarningMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 300, 30));
 
         updateDogButton.setText("UPDATE DOG");
         updateDogButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1306,13 +1307,6 @@ public class ShelterGui extends javax.swing.JFrame {
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 140, -1));
 
-        refreshTablesButton.setText("REFRESH TABLE");
-        refreshTablesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTablesButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1320,11 +1314,6 @@ public class ShelterGui extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 1049, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel59))
@@ -1336,18 +1325,21 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(jLabel60))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel58)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(refreshTablesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel58))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1357,24 +1349,21 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel58)
-                    .addComponent(refreshTablesButton))
+                    .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel58)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel59)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel60)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout DisplayAnimalsScreenLayout = new javax.swing.GroupLayout(DisplayAnimalsScreen);
@@ -1945,17 +1934,17 @@ public class ShelterGui extends javax.swing.JFrame {
             if(selectedRowCat != -1){
                 Cat cat = new Cat(name,age);
                 int remainingCatLifeTime = cat.findRemainingLifeTime();
-                animalLifeTimeText.setText("Cat Name: " + cat.getName() + " remaining life time: " +  remainingCatLifeTime);
+                animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
             }
             if(selectedRowDog != -1){
                Dog dog = new Dog(name,age);
                int remainingCatLifeTime = dog.findRemainingLifeTime();
-               animalLifeTimeText.setText("Dog Name: " + dog.getName() + " remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
             }
             if(selectedRowBird != -1){
                Bird bird = new Bird(name,age);
                int remainingCatLifeTime = bird.findRemainingLifeTime();
-               animalLifeTimeText.setText("Bird Name: " + bird.getName() + " remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Remaining life time: " +  remainingCatLifeTime);
             }
         }        
     }//GEN-LAST:event_findLifeTimeButtonActionPerformed
@@ -2372,10 +2361,6 @@ public class ShelterGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void refreshTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTablesButtonActionPerformed
-        showTable();
-    }//GEN-LAST:event_refreshTablesButtonActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2555,7 +2540,6 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JSlider jSliderAddHealth;
     private javax.swing.JSlider jSliderUpdateHealth;
     private javax.swing.JLabel logOutButton;
-    private javax.swing.JButton refreshTablesButton;
     private javax.swing.JTextField searchBar;
     private javax.swing.JRadioButton sterilizeNo;
     private javax.swing.JRadioButton sterilizeYes;
