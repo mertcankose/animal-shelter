@@ -2226,9 +2226,11 @@ public class ShelterGui extends javax.swing.JFrame {
             int id = (int) modelCat.getValueAt(selectedRow, 0);
             
             databaseOperations.updateCat(id,name,age,gender,sterilize,length,weight,place,health,agressive,10);
+            
             showTable();
-
-            displayAnimalWarningMessage.setText("Update successfully.");
+            
+            JOptionPane.showMessageDialog(this,name + " Successfully Updated");
+            // displayAnimalWarningMessage.setText("Update successfully.");
            
         }       
     }//GEN-LAST:event_updateCatButtonActionPerformed
@@ -2287,7 +2289,8 @@ public class ShelterGui extends javax.swing.JFrame {
             databaseOperations.updateDog(id,name,age,gender,sterilize,length,weight,place,health,strain,10);
             showTable();
 
-            displayAnimalWarningMessage.setText("Update successfully.");
+              JOptionPane.showMessageDialog(this,name + " Successfully Updated");
+            //displayAnimalWarningMessage.setText("Update successfully.");
             
         } 
     }//GEN-LAST:event_updateDogButtonActionPerformed
@@ -2351,8 +2354,9 @@ public class ShelterGui extends javax.swing.JFrame {
             
             databaseOperations.updateBird(id,name,age,gender,sterilize,length,weight,place,health,strain,isTalk,10);
             showTable();
-
-            displayAnimalWarningMessage.setText("Update successfully.");
+            
+            JOptionPane.showMessageDialog(this,name + " Successfully Updated");
+            // displayAnimalWarningMessage.setText("Update successfully.");
             
         } 
     }//GEN-LAST:event_updateBirdButtonActionPerformed
