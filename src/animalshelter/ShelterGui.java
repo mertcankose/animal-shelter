@@ -402,7 +402,7 @@ public class ShelterGui extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
@@ -424,8 +424,8 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(github, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -784,7 +784,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
         catIconLabel.setVisible(false);
         catIconLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cc.gif"))); // NOI18N
-        jPanel1.add(catIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, 440, 360));
+        jPanel1.add(catIconLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 440, 360));
 
         birdIcon.setVisible(false);
         birdIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/birdGif.gif"))); // NOI18N
@@ -1644,7 +1644,7 @@ public class ShelterGui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1945,17 +1945,17 @@ public class ShelterGui extends javax.swing.JFrame {
             if(selectedRowCat != -1){
                 Cat cat = new Cat(name,age);
                 int remainingCatLifeTime = cat.findRemainingLifeTime();
-                animalLifeTimeText.setText("Cat Name: " + cat.getName() + "remaining life time: " +  remainingCatLifeTime);
+                animalLifeTimeText.setText("Cat Name: " + cat.getName() + " remaining life time: " +  remainingCatLifeTime);
             }
             if(selectedRowDog != -1){
                Dog dog = new Dog(name,age);
                int remainingCatLifeTime = dog.findRemainingLifeTime();
-               animalLifeTimeText.setText("Dog Name: " + dog.getName() + "remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Dog Name: " + dog.getName() + " remaining life time: " +  remainingCatLifeTime);
             }
             if(selectedRowBird != -1){
                Bird bird = new Bird(name,age);
                int remainingCatLifeTime = bird.findRemainingLifeTime();
-               animalLifeTimeText.setText("Bird Name: " + bird.getName() + "remaining life time: " +  remainingCatLifeTime);
+               animalLifeTimeText.setText("Bird Name: " + bird.getName() + " remaining life time: " +  remainingCatLifeTime);
             }
         }        
     }//GEN-LAST:event_findLifeTimeButtonActionPerformed
