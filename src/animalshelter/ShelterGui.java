@@ -643,6 +643,11 @@ public class ShelterGui extends javax.swing.JFrame {
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 43, -1));
 
         animalAge.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        animalAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalAgeActionPerformed(evt);
+            }
+        });
         jPanel1.add(animalAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 168, 24));
 
         animalName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1967,9 +1972,19 @@ public class ShelterGui extends javax.swing.JFrame {
             addAnimalWarningMessage.setText("Name field can't be empty!");
         } else {
 
-            //animal age
-            int age = Integer.parseInt(animalAge.getText());
-
+            
+            int age;
+            try 
+            {
+                age = Integer.parseInt(animalAge.getText());
+            }
+            catch(NumberFormatException e)
+            {
+                JOptionPane.showMessageDialog(this, "Age have to be an integer");
+                return;
+            }
+            
+            
             // animal gender
             String gender = "";
             if (genderFemale.isSelected()) {
@@ -2366,6 +2381,10 @@ public class ShelterGui extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void animalAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_animalAgeActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
