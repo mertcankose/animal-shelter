@@ -256,6 +256,7 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton = new javax.swing.JButton();
         updateCatButton = new javax.swing.JButton();
         jPanel8 = new jPanelGradient2();
+        refreshTablesButton = new javax.swing.JButton();
         AboutScreen = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -1305,6 +1306,13 @@ public class ShelterGui extends javax.swing.JFrame {
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 140, -1));
 
+        refreshTablesButton.setText("REFRESH TABLE");
+        refreshTablesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTablesButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1317,12 +1325,6 @@ public class ShelterGui extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel58))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel59))
@@ -1338,6 +1340,14 @@ public class ShelterGui extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refreshTablesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1349,7 +1359,9 @@ public class ShelterGui extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel58)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel58)
+                    .addComponent(refreshTablesButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1649,16 +1661,6 @@ public class ShelterGui extends javax.swing.JFrame {
         modelCat.setRowCount(0);
         modelBird.setRowCount(0);
         modelDog.setRowCount(0);
-
-        /*
-        ArrayList<Dog> dogs = new ArrayList<Dog>();
-        ArrayList<Cat> cats = new ArrayList<Cat>();
-        ArrayList<Bird> birds = new ArrayList<Bird>();
-
-        dogs = databaseOperations.getDogs();
-        cats = databaseOperations.getCats();
-        birds = databaseOperations.getBirds();
-        */
         
         SystemAnimal.dogsArrayList = databaseOperations.getDogs();
         SystemAnimal.catsArrayList = databaseOperations.getCats();
@@ -2370,6 +2372,10 @@ public class ShelterGui extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void refreshTablesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTablesButtonActionPerformed
+        showTable();
+    }//GEN-LAST:event_refreshTablesButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2549,6 +2555,7 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JSlider jSliderAddHealth;
     private javax.swing.JSlider jSliderUpdateHealth;
     private javax.swing.JLabel logOutButton;
+    private javax.swing.JButton refreshTablesButton;
     private javax.swing.JTextField searchBar;
     private javax.swing.JRadioButton sterilizeNo;
     private javax.swing.JRadioButton sterilizeYes;
