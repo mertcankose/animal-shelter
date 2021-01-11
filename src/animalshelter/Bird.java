@@ -10,12 +10,16 @@ public class Bird extends Animal {
     private boolean isTalk;
     private int hungerRatio = birdHungerLimit; //kg
 
-    public Bird(int id,String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, String strain,boolean isTalk,String personnel) {
-        super(id,name, age, gender, isSterilize, length, weight, place, stateOfHealth,personnel);
+    public Bird(int id, String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, String strain, boolean isTalk, String personnel) {
+        super(id, name, age, gender, isSterilize, length, weight, place, stateOfHealth, personnel);
         this.strain = strain;
         this.isTalk = isTalk;
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS);
+    }
+
+    public Bird(String name, int age) {
+        super(name, age);
     }
 
     public String getStrain() {
@@ -42,8 +46,6 @@ public class Bird extends Animal {
         this.hungerRatio = hungerRatio;
     }
 
-    
-    
     Runnable decraseHungerRatio = new Runnable() {
         public void run() {
             hungerRatio--;
@@ -52,14 +54,18 @@ public class Bird extends Animal {
 
     @Override
     public int findRemainingLifeTime() {
-         return (int) (birdAverageLifeTime - this.getAge());
-    }
-    
-    @Override
-    public int giveFood() {
-       hungerRatio++;
-        return hungerRatio;
+        int time = (int) (birdAverageLifeTime - this.getAge());
+        if (time < 0) {
+            return 0;
+        } else {
+            return time;
+        }
     }
 
+    @Override
+    public int giveFood() {
+        hungerRatio++;
+        return hungerRatio;
+    }
 
 }

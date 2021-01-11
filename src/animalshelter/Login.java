@@ -103,7 +103,6 @@ public class Login extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         
-        
         String username = loginUsernameInput.getText();
         String password = new String(loginPasswordInput.getPassword());
         
@@ -114,8 +113,6 @@ public class Login extends javax.swing.JFrame {
         }else{
              authority = false;
         }
-        
-        // Personnel personnelLogined = new Personnel(username,password,authority);
       
         boolean login_success = databaseOperations.login(username,password);
         
@@ -127,25 +124,6 @@ public class Login extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this,"There is no user that has this username or password. Please Register!");
         }
-        
-        /*
-        ArrayList<User> user_list = ShelterGui.getUser_list();
-        
-        if(user_list.size() == 0){
-            JOptionPane.showMessageDialog(this,"There is no user any!");
-        }else{
-            for(User user:user_list){
-                if(user.getEmail().equals(username) && user.getPassoword().equals(password)){
-                     shelter.setVisible(true);
-                     this.setVisible(false);
-                     return;
-                }
-            }
-            JOptionPane.showMessageDialog(this,"There is no user that has this mail or password. Please Register!");
-        }
-        */
-        
-    
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerLinkMouseClicked

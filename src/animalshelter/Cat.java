@@ -9,12 +9,16 @@ public class Cat extends Animal {
     private boolean isAgressive;
     private int hungerRatio = catHungerLimit;
 
-    public Cat(int id,String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, boolean isAgressive,String personnel) {
-        super(id,name, age, gender, isSterilize, length, weight, place, stateOfHealth,personnel);
+    public Cat(int id, String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, boolean isAgressive, String personnel) {
+        super(id, name, age, gender, isSterilize, length, weight, place, stateOfHealth, personnel);
         this.isAgressive = isAgressive;
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS);
+    }
+
+    public Cat(String name, int age) {
+        super(name, age);
     }
 
     public boolean isIsAgressive() {
@@ -32,8 +36,6 @@ public class Cat extends Animal {
     public void setHungerRatio(int hungerRatio) {
         this.hungerRatio = hungerRatio;
     }
-    
-    
 
     Runnable decraseHungerRatio = new Runnable() {
         public void run() {
@@ -41,16 +43,19 @@ public class Cat extends Animal {
         }
     };
 
-    
-    
     @Override
     public int findRemainingLifeTime() {
-         return (int) (catAverageLifeTime - this.getAge());
+        int time = (int) (catAverageLifeTime - this.getAge());
+        if (time < 0) {
+            return 0;
+        } else {
+            return time;
+        }
     }
 
     @Override
     public int giveFood() {
-       hungerRatio++;
+        hungerRatio++;
         return hungerRatio;
     }
 

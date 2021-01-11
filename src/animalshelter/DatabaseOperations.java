@@ -140,7 +140,7 @@ public class DatabaseOperations {
             prepareStatement.setBoolean(9, agressive);
             prepareStatement.setInt(10, hungerRatio);
             prepareStatement.setString(11, personnel.getName());
-            System.out.println("databasee yollanacak: " + personnel.getName());
+            //System.out.println("databasee yollanacak: " + personnel.getName());
             prepareStatement.executeUpdate();
             
         } catch (SQLException ex) {
@@ -429,9 +429,9 @@ public class DatabaseOperations {
              
         try {
             con = DriverManager.getConnection(url,Database.username,Database.password);
-            System.out.println("Connection is great!");
+            //System.out.println("Connection is great!");
         } catch (SQLException ex) {
-            System.out.println("Connection failed!!");
+            //System.out.println("Connection failed!!");
         }
     }
 }
