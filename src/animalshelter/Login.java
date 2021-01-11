@@ -8,10 +8,11 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     
     DatabaseOperations databaseOperations = new DatabaseOperations();
-  
     public Login() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setTitle("Animal Shelter - Login Panel © 2021");
+
     }
 
     /**

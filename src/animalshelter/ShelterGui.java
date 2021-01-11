@@ -32,6 +32,7 @@ public class ShelterGui extends javax.swing.JFrame {
     DefaultTableModel modelBird;
     DefaultTableModel modelDog;
     
+    
     DatabaseOperations databaseOperations = new DatabaseOperations();
     
     Personnel personnel;
@@ -80,7 +81,7 @@ public class ShelterGui extends javax.swing.JFrame {
             GradientPaint gp = new GradientPaint(0, 0, c1, 180, height, c2);
             g2d.setPaint(gp);
             g2d.fillRect(0, 0, width, height);
-
+            setTitle("Animal Shelter Management System © 2021");
         }
     }
 
