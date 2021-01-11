@@ -920,13 +920,13 @@
                                       <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="isTalkBirdYes" min="-2" pref="56" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="isTalkBirdNo" min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="typeBird" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Component id="typeBird" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>

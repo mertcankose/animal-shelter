@@ -687,12 +687,12 @@ public class ShelterGui extends javax.swing.JFrame {
                     .addComponent(jLabel56)
                     .addComponent(jLabel55))
                 .addGap(18, 18, 18)
-                .addGroup(addScreenBirdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(addScreenBirdPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(addScreenBirdPanelLayout.createSequentialGroup()
                         .addComponent(isTalkBirdYes, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(isTalkBirdNo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(typeBird, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeBird))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         addScreenBirdPanelLayout.setVerticalGroup(
