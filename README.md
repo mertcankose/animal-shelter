@@ -7,7 +7,7 @@ In this system, the needs of the animals are checked and their deficiencies are 
 Their health status, development processes (height, weight, breeding), their instant location are checked weekly and entered into the system by the employees.
 
 
-## 🙇 Team **G16**
+## 🙇 Team **(G-16)**
 ```bash
 Or Contributors/People
 ```
