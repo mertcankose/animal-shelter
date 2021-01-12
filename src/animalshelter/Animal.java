@@ -6,7 +6,7 @@ public abstract class Animal implements IOzellik {
     private String name;
     private int age;
     private String gender;
-    private boolean isSterilize;
+    private String isSterilize;
     private double length;
     private double weight;
     private String place;
@@ -14,7 +14,7 @@ public abstract class Animal implements IOzellik {
     private Personnel personnel;
     private String personnelName;
     
-    public Animal(int id,String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth,String personnelName) {
+    public Animal(int id,String name, int age, String gender, String isSterilize, double length, double weight, String place, String stateOfHealth,String personnelName) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -66,11 +66,11 @@ public abstract class Animal implements IOzellik {
         this.gender = gender;
     }
 
-    public boolean isIsSterilize() {
+    public String isIsSterilize() {
         return isSterilize;
     }
 
-    public void setIsSterilize(boolean isSterilize) {
+    public void setIsSterilize(String isSterilize) {
         this.isSterilize = isSterilize;
     }
 

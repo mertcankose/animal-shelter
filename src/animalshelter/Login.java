@@ -8,11 +8,11 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     
     DatabaseOperations databaseOperations = new DatabaseOperations();
+    
     public Login() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setTitle("Animal Shelter - Login Panel © 2021");
-
     }
 
     /**
@@ -107,18 +107,15 @@ public class Login extends javax.swing.JFrame {
         String username = loginUsernameInput.getText();
         String password = new String(loginPasswordInput.getPassword());
         
-        boolean authority = false;
-      
-        if(username.equals("admin") && password.equals("admin")){
-             authority = true;
-        }else{
-             authority = false;
-        }
-      
-        boolean login_success = databaseOperations.login(username,password);
+        Personnel personnelControl = new Personnel(username,password);
+        boolean authority = personnelControl.equals(personnelControl); //if name = admin && password = admin 
         
-        ShelterGui shelter = new ShelterGui(username,password,authority);
+        Personnel loginedPersonnel = new Personnel(username,password,authority);
         
+        ShelterGui shelter = new ShelterGui(loginedPersonnel);
+        
+        boolean login_success = databaseOperations.login(loginedPersonnel);
+       
         if(login_success){
             shelter.setVisible(true);
             this.setVisible(false);

@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 public class Cat extends Animal {
 
-    private boolean isAgressive;
+    private String isAgressive;
     private int hungerRatio = catHungerLimit;
 
-    public Cat(int id, String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, boolean isAgressive, String personnel) {
-        super(id, name, age, gender, isSterilize, length, weight, place, stateOfHealth, personnel);
+    public Cat(int id, String name, int age, String gender, String isSterilize, double length, double weight, String place, String health, String isAgressive, String personnel) {
+        super(id, name, age, gender, isSterilize, length, weight, place, health, personnel);
         this.isAgressive = isAgressive;
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
@@ -21,11 +21,11 @@ public class Cat extends Animal {
         super(name, age);
     }
 
-    public boolean isIsAgressive() {
+    public String isIsAgressive() {
         return isAgressive;
     }
 
-    public void setIsAgressive(boolean isAgressive) {
+    public void setIsAgressive(String isAgressive) {
         this.isAgressive = isAgressive;
     }
 

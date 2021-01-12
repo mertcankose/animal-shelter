@@ -31,22 +31,22 @@ public class DatabaseOperations {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
-                boolean sterilize = rs.getBoolean("sterilize");
+                String sterilize = rs.getString("sterilize");
                 double length = rs.getDouble("length");
                 double weight = rs.getDouble("weight");
                 String place = rs.getString("place");
-                String health = rs.getString("stateOfHealth");
-                String strain = rs.getString("strain");
+                String health = rs.getString("health");
+                String type = rs.getString("type");
                 //int hungerRatio = rs.getInt("hungerRatio");
                 String personnel = rs.getString("personnel");
               
                 //output.add(new Dog(id,type,name,age,gender,sterilize,length,weight,place,health));
-                outputDog.add(new Dog(id,name,age,gender,sterilize,length,weight,place,health,strain,personnel));     
+                outputDog.add(new Dog(id,name,age,gender,sterilize,length,weight,place,health,type,personnel));     
             }
             return outputDog;
             
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SystemAnimal.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -67,12 +67,12 @@ public class DatabaseOperations {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
-                boolean sterilize = rs.getBoolean("sterilize");
+                String sterilize = rs.getString("sterilize");
                 double length = rs.getDouble("length");
                 double weight = rs.getDouble("weight");
                 String place = rs.getString("place");
-                String health = rs.getString("stateOfHealth");
-                boolean agressive = rs.getBoolean("agressive");
+                String health = rs.getString("health");
+                String agressive = rs.getString("agressive");
                 //int hungerRatio = rs.getInt("hungerRatio");
                 String personnel = rs.getString("personnel");
               
@@ -82,7 +82,7 @@ public class DatabaseOperations {
             return outputCat;
             
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SystemAnimal.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -103,42 +103,42 @@ public class DatabaseOperations {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
                 String gender = rs.getString("gender");
-                boolean sterilize = rs.getBoolean("sterilize");
+                String sterilize = rs.getString("sterilize");
                 double length = rs.getDouble("length");
                 double weight = rs.getDouble("weight");
                 String place = rs.getString("place");
-                String health = rs.getString("stateOfHealth");
-                String strain = rs.getString("strain");
-                boolean talk = rs.getBoolean("talk");
+                String health = rs.getString("health");
+                String type = rs.getString("type");
+                String talk = rs.getString("talk");
                 //int hungerRatio = rs.getInt("hungerRatio");
                 String personnel = rs.getString("personnel");
               
                 //output.add(new Dog(id,type,name,age,gender,sterilize,length,weight,place,health));
-                outputBird.add(new Bird(id,name,age,gender,sterilize,length,weight,place,health,strain,talk,personnel));   
+                outputBird.add(new Bird(id,name,age,gender,sterilize,length,weight,place,health,type,talk,personnel));   
             }
             return outputBird;
             
         } catch (SQLException ex) {
-            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SystemAnimal.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
         
-    public void addCat(String name, int age,String gender,boolean sterilize,double length,double weight,String place,String health, boolean agressive, int hungerRatio,Personnel personnel){
-        String query = "Insert Into cats (name,age,gender,sterilize,length,weight,place,stateOfHealth,agressive,hungerRatio,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+    public void addCat(String name, int age,String gender,String sterilize,double length,double weight,String place,String health, int hungerRatio, String agressive,Personnel personnel){
+        String query = "Insert Into cats (name,age,gender,sterilize,length,weight,place,health,hungerRatio,agressive,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
             prepareStatement.setString(1, name);
             prepareStatement.setInt(2, age);
             prepareStatement.setString(3, gender);
-            prepareStatement.setBoolean(4, sterilize);
+            prepareStatement.setString(4, sterilize);
             prepareStatement.setDouble(5, length);
             prepareStatement.setDouble(6, weight);
             prepareStatement.setString(7, place);
             prepareStatement.setString(8, health);
-            prepareStatement.setBoolean(9, agressive);
-            prepareStatement.setInt(10, hungerRatio);
+             prepareStatement.setInt(9, hungerRatio);
+            prepareStatement.setString(10, agressive);
             prepareStatement.setString(11, personnel.getName());
             //System.out.println("databasee yollanacak: " + personnel.getName());
             prepareStatement.executeUpdate();
@@ -148,22 +148,22 @@ public class DatabaseOperations {
         }
     }
     
-    public void addBird(String name, int age,String gender,boolean sterilize,double length,double weight,String place,String health, String strain, boolean talk, int hungerRatio,Personnel personnel){
-        String query = "Insert Into birds (name,age,gender,sterilize,length,weight,place,stateOfHealth,strain,talk,hungerRatio,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    public void addBird(String name, int age,String gender,String sterilize,double length,double weight,String place,String health,int hungerRatio, String type, String talk,Personnel personnel){
+        String query = "Insert Into birds (name,age,gender,sterilize,length,weight,place,health,hungerRatio,type,talk,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
             prepareStatement.setString(1, name);
             prepareStatement.setInt(2, age);
             prepareStatement.setString(3, gender);
-            prepareStatement.setBoolean(4, sterilize);
+            prepareStatement.setString(4, sterilize);
             prepareStatement.setDouble(5, length);
             prepareStatement.setDouble(6, weight);
             prepareStatement.setString(7, place);
             prepareStatement.setString(8, health);
-            prepareStatement.setString(9, strain);
-            prepareStatement.setBoolean(10, talk);
-            prepareStatement.setInt(11, hungerRatio);
+             prepareStatement.setInt(9, hungerRatio);
+            prepareStatement.setString(10, type);
+            prepareStatement.setString(11, talk);
             prepareStatement.setString(12, personnel.getName());
             
             prepareStatement.executeUpdate();
@@ -173,21 +173,21 @@ public class DatabaseOperations {
         }
     }
         
-    public void addDog(String name, int age,String gender,boolean sterilize,double length,double weight,String place,String health, String strain, int hungerRatio,Personnel personnel){
-        String query = "Insert Into dogs (name,age,gender,sterilize,length,weight,place,stateOfHealth,strain,hungerRatio,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+    public void addDog(String name, int age,String gender,String sterilize,double length,double weight,String place,String health, int hungerRatio, String type,Personnel personnel){
+        String query = "Insert Into dogs (name,age,gender,sterilize,length,weight,place,health,hungerRatio,type,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
             prepareStatement.setString(1, name);
             prepareStatement.setInt(2, age);
             prepareStatement.setString(3, gender);
-            prepareStatement.setBoolean(4, sterilize);
+            prepareStatement.setString(4, sterilize);
             prepareStatement.setDouble(5, length);
             prepareStatement.setDouble(6, weight);
             prepareStatement.setString(7, place);
             prepareStatement.setString(8, health);
-            prepareStatement.setString(9, strain);
-            prepareStatement.setInt(10, hungerRatio);
+            prepareStatement.setInt(9, hungerRatio);
+            prepareStatement.setString(10, type);
             prepareStatement.setString(11, personnel.getName());
             
             prepareStatement.executeUpdate();
@@ -196,35 +196,10 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*
-    public void addAnimal(String type,String name, String age,String gender,String sterilize,String length,String weight, String place,String health){
-        String query = "Insert Into animals (type,name,age,gender,sterilize,length,weight,place,health) VALUES(?,?,?,?,?,?,?,?,?)";
-        
-        try {
-            prepareStatement = con.prepareStatement(query);
-            prepareStatement.setString(1, type);
-            prepareStatement.setString(2, name);
-            prepareStatement.setString(3, age);
-            prepareStatement.setString(4, gender);
-            prepareStatement.setString(5, sterilize);
-            prepareStatement.setString(6, length);
-            prepareStatement.setString(7, weight);
-            prepareStatement.setString(8, place);
-            prepareStatement.setString(9, health);
-            
-            prepareStatement.executeUpdate();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
+      
     
-    
-    
-    
-    public void updateCat(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,boolean new_agressive,int new_hungerRatio){
-        String query = "Update cats set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, agressive = ?, hungerRatio = ? where id = ?";
+    public void updateCat(int id,String new_name, int new_age, String new_gender,String new_sterilize,double new_length,double new_weight,String new_place,String new_health,int new_hungerRatio,String new_agressive){
+        String query = "Update cats set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, health = ?, hungerRatio = ?, agressive = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -233,14 +208,13 @@ public class DatabaseOperations {
             prepareStatement.setString(1, new_name);
             prepareStatement.setInt(2, new_age);
             prepareStatement.setString(3, new_gender);
-            prepareStatement.setBoolean(4, new_sterilize);
+            prepareStatement.setString(4, new_sterilize);
             prepareStatement.setDouble(5, new_length);
             prepareStatement.setDouble(6, new_weight);
             prepareStatement.setString(7, new_place);
             prepareStatement.setString(8, new_health);
-            prepareStatement.setBoolean(9, new_agressive);
-            prepareStatement.setInt(10, new_hungerRatio);
-
+            prepareStatement.setInt(9, new_hungerRatio);
+            prepareStatement.setString(10, new_agressive);
             prepareStatement.setInt(11, id);
 
             prepareStatement.executeUpdate();
@@ -250,8 +224,8 @@ public class DatabaseOperations {
         }
     }
     
-    public void updateBird(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,boolean new_talk,int new_hungerRatio){
-        String query = "Update birds set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?,talk = ?, hungerRatio = ? where id = ?";
+    public void updateBird(int id,String new_name, int new_age, String new_gender,String new_sterilize,double new_length,double new_weight,String new_place,String new_health,int new_hungerRatio,String new_type,String new_talk){
+        String query = "Update birds set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, health = ?, hungerRatio = ? , type = ?, talk = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -260,15 +234,14 @@ public class DatabaseOperations {
             prepareStatement.setString(1, new_name);
             prepareStatement.setInt(2, new_age);
             prepareStatement.setString(3, new_gender);
-            prepareStatement.setBoolean(4, new_sterilize);
+            prepareStatement.setString(4, new_sterilize);
             prepareStatement.setDouble(5, new_length);
             prepareStatement.setDouble(6, new_weight);
             prepareStatement.setString(7, new_place);
             prepareStatement.setString(8, new_health);
-            prepareStatement.setString(9, new_strain);
-            prepareStatement.setBoolean(10, new_talk);
-            prepareStatement.setInt(11, new_hungerRatio);
-
+            prepareStatement.setInt(9, new_hungerRatio);
+            prepareStatement.setString(10, new_type);
+            prepareStatement.setString(11, new_talk);
             prepareStatement.setInt(12, id);
 
             prepareStatement.executeUpdate();
@@ -278,8 +251,8 @@ public class DatabaseOperations {
         }
     }
     
-     public void updateDog(int id,String new_name, int new_age, String new_gender,boolean new_sterilize,double new_length,double new_weight,String new_place,String new_health,String new_strain,int new_hungerRatio){
-        String query = "Update dogs set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, stateOfHealth = ?, strain = ?, hungerRatio = ? where id = ?";
+     public void updateDog(int id,String new_name, int new_age, String new_gender,String new_sterilize,double new_length,double new_weight,String new_place,String new_health,int new_hungerRatio,String new_type){
+        String query = "Update dogs set name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, health = ?, hungerRatio = ?, type = ? where id = ?";
 
         try {
             prepareStatement = con.prepareStatement(query);
@@ -288,14 +261,13 @@ public class DatabaseOperations {
             prepareStatement.setString(1, new_name);
             prepareStatement.setInt(2, new_age);
             prepareStatement.setString(3, new_gender);
-            prepareStatement.setBoolean(4, new_sterilize);
+            prepareStatement.setString(4, new_sterilize);
             prepareStatement.setDouble(5, new_length);
             prepareStatement.setDouble(6, new_weight);
             prepareStatement.setString(7, new_place);
             prepareStatement.setString(8, new_health);
-            prepareStatement.setString(9, new_strain);
-            prepareStatement.setInt(10, new_hungerRatio);
-
+            prepareStatement.setInt(9, new_hungerRatio);
+            prepareStatement.setString(10, new_type);
             prepareStatement.setInt(11, id);
 
             prepareStatement.executeUpdate();
@@ -304,33 +276,6 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*
-    public void updateAnimal(int id,String new_type,String new_name, String new_age, String new_gender,String new_sterilize,String new_length,String new_weight,String new_place,String new_health){
-        String query = "Update animals set type = ?, name = ?, age = ?, gender = ?, sterilize = ?, length = ?, weight = ?, place = ?, health = ? where id = ?";
-
-        try {
-            prepareStatement = con.prepareStatement(query);
-
-            prepareStatement.setString(1, new_type);
-            prepareStatement.setString(2, new_name);
-            prepareStatement.setString(3, new_age);
-            prepareStatement.setString(4, new_gender);
-            prepareStatement.setString(5, new_sterilize);
-            prepareStatement.setString(6, new_length);
-            prepareStatement.setString(7, new_weight);
-            prepareStatement.setString(8, new_place);
-            prepareStatement.setString(9, new_health);
-
-            prepareStatement.setInt(10, id);
-
-            prepareStatement.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    */
-     
      
     public void deleteCat(int id){
         String query = "Delete FROM cats where id = ?";
@@ -374,30 +319,14 @@ public class DatabaseOperations {
         }
     }
      
-     
-     /*
-    public void deleteAnimal(int id){
-        String query = "Delete FROM animals where id = ?";
-        
-        try {
-            prepareStatement = con.prepareStatement(query);
-            prepareStatement.setInt(1,id);
-            
-            prepareStatement.executeUpdate();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-*/
-    public boolean login(String username,String password){
-        String query = "Select * From admins where username = ? and password = ?";
+    public boolean login(Personnel personnel){
+        String query = "Select * From users where username = ? and password = ?";
         
         try {
             prepareStatement = con.prepareStatement(query);
             
-            prepareStatement.setString(1, username);
-            prepareStatement.setString(2, password);
+            prepareStatement.setString(1, personnel.getName());
+            prepareStatement.setString(2, personnel.getPassword());
             
             ResultSet rs = prepareStatement.executeQuery();
             
@@ -408,14 +337,14 @@ public class DatabaseOperations {
             return false;
         }
     }
-    public void register (String username, String password){
-        String query = "Insert Into admins (username,password) VALUES(?,?)";
+    public void register (Personnel personnel){
+        String query = "Insert Into users (username,password) VALUES(?,?)";
              
         try {
             prepareStatement = con.prepareStatement(query);
-            
-            prepareStatement.setString(1, username);
-            prepareStatement.setString(2, password);
+            System.out.println("test-register " + personnel.getName() + " " + personnel.getPassword());
+            prepareStatement.setString(1, personnel.getName());
+            prepareStatement.setString(2, personnel.getPassword());
             
             prepareStatement.executeUpdate();
             
@@ -425,10 +354,10 @@ public class DatabaseOperations {
     }
     public DatabaseOperations(){
         //jdbc:mysql://localhost:3306/animal_shelter
-        String url = "jdbc:mysql://" + Database.host + ":" + Database.port + "/" + Database.db_name + "?useUnicode=true&characterEncoding=utf8";
+        String url = "jdbc:mysql://" + SystemAnimal.host + ":" + SystemAnimal.port + "/" + SystemAnimal.db_name + "?useUnicode=true&characterEncoding=utf8";
              
         try {
-            con = DriverManager.getConnection(url,Database.username,Database.password);
+            con = DriverManager.getConnection(url,SystemAnimal.username,SystemAnimal.password);
             //System.out.println("Connection is great!");
         } catch (SQLException ex) {
             //System.out.println("Connection failed!!");

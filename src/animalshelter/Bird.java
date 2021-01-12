@@ -6,13 +6,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Bird extends Animal {
 
-    private String strain;
-    private boolean isTalk;
+    private String type;
+    private String isTalk;
     private int hungerRatio = birdHungerLimit; //kg
 
-    public Bird(int id, String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth, String strain, boolean isTalk, String personnel) {
-        super(id, name, age, gender, isSterilize, length, weight, place, stateOfHealth, personnel);
-        this.strain = strain;
+    public Bird(int id, String name, int age, String gender, String isSterilize, double length, double weight, String place, String health, String type, String isTalk, String personnel) {
+        super(id, name, age, gender, isSterilize, length, weight, place, health, personnel);
+        this.type = type;
         this.isTalk = isTalk;
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS);
@@ -22,19 +22,20 @@ public class Bird extends Animal {
         super(name, age);
     }
 
-    public String getStrain() {
-        return strain;
+    public String getType() {
+        return type;
     }
 
-    public void setStrain(String strain) {
-        this.strain = strain;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public boolean isIsTalk() {
+
+    public String isIsTalk() {
         return isTalk;
     }
 
-    public void setIsTalk(boolean isTalk) {
+    public void setIsTalk(String isTalk) {
         this.isTalk = isTalk;
     }
 

@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.Timer;
 
 public class Dog extends Animal {
-    private String strain;
+    private String type;
     private int hungerRatio = dogHungerLimit; 
 
-    public Dog(int id,String name, int age, String gender, boolean isSterilize, double length, double weight, String place, String stateOfHealth,String strain,String personnel) {
-        super(id,name, age, gender, isSterilize, length, weight, place, stateOfHealth,personnel);
-        this.strain = strain;
+    public Dog(int id,String name, int age, String gender, String isSterilize, double length, double weight, String place, String health,String type,String personnel) {
+        super(id,name, age, gender, isSterilize, length, weight, place, health,personnel);
+        this.type = type;
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS); 
     }
@@ -22,13 +22,14 @@ public class Dog extends Animal {
         super(name,age);
     }
 
-    public String getStrain() {
-        return strain;
+    public String getType() {
+        return type;
     }
 
-    public void setStrain(String strain) {
-        this.strain = strain;
+    public void setType(String type) {
+        this.type = type;
     }
+
 
     public int getHungerRatio() {
         return hungerRatio;

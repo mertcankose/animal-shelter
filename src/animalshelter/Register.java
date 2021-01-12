@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package animalshelter;
 
 import java.util.ArrayList;
@@ -109,13 +105,15 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        Login login = new Login();
-        
+         
         String username = registerUsernamelInput.getText();
         String password = new String(registerPasswordInput.getPassword());
         
-        databaseOperations.register(username,password);
+        Personnel personnel = new Personnel(username,password);
         
+        databaseOperations.register(personnel);
+        
+        Login login = new Login();
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
@@ -127,9 +125,6 @@ public class Register extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_loginLinkMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

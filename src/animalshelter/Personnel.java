@@ -12,6 +12,11 @@ public class Personnel {
         this.password = password;
     }
 
+    public Personnel(String username, String password) {
+        this.name = username;
+        this.password = password;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -35,6 +40,12 @@ public class Personnel {
     public void setAuthority(boolean authority) {
         this.authority = authority;
     }
-    
-    
+
+    //check name = admin && password = admin 
+    public boolean equals(Personnel personnel) {
+        if(personnel.getName().equals("admin") && personnel.getPassword().equals("admin")){
+            return true;
+        }
+        return false;
+    }    
 }

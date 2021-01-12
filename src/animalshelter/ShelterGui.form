@@ -1451,12 +1451,12 @@
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
                                 <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
-                                <Column editable="false" title="Sterilize" type="java.lang.Object"/>
+                                <Column editable="false" title="IsSterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
-                                <Column editable="false" title="Strain" type="java.lang.Object"/>
+                                <Column editable="false" title="Type" type="java.lang.Object"/>
                                 <Column editable="false" title="IsTalk" type="java.lang.Object"/>
                                 <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
                                 <Column editable="true" title="Personnel" type="java.lang.Object"/>
@@ -1572,12 +1572,12 @@
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
                                 <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
-                                <Column editable="false" title="Sterilize" type="java.lang.Object"/>
+                                <Column editable="false" title="IsSterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
-                                <Column editable="false" title="Agressive" type="java.lang.Object"/>
+                                <Column editable="false" title="IsAgressive" type="java.lang.Object"/>
                                 <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
                                 <Column editable="false" title="Personnel" type="java.lang.Object"/>
                               </Table>
@@ -1682,12 +1682,12 @@
                                 <Column editable="false" title="Name" type="java.lang.Object"/>
                                 <Column editable="false" title="Age" type="java.lang.Integer"/>
                                 <Column editable="false" title="Gender" type="java.lang.Object"/>
-                                <Column editable="false" title="Sterilize" type="java.lang.Object"/>
+                                <Column editable="false" title="IsSterilize" type="java.lang.Object"/>
                                 <Column editable="false" title="Length" type="java.lang.Object"/>
                                 <Column editable="false" title="Weight" type="java.lang.Object"/>
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
-                                <Column editable="false" title="Strain" type="java.lang.Object"/>
+                                <Column editable="false" title="Type" type="java.lang.Object"/>
                                 <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
                                 <Column editable="false" title="Personnel" type="java.lang.Object"/>
                               </Table>
