@@ -147,24 +147,23 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void addBird(String name, int age,String gender,String sterilize,double length,double weight,String place,String health,int hungerRatio, String type, String talk,Personnel personnel){
+    public void addBird(Bird bird){
         String query = "Insert Into birds (name,age,gender,sterilize,length,weight,place,health,hungerRatio,type,talk,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
-            prepareStatement.setString(1, name);
-            prepareStatement.setInt(2, age);
-            prepareStatement.setString(3, gender);
-            prepareStatement.setString(4, sterilize);
-            prepareStatement.setDouble(5, length);
-            prepareStatement.setDouble(6, weight);
-            prepareStatement.setString(7, place);
-            prepareStatement.setString(8, health);
-             prepareStatement.setInt(9, hungerRatio);
-            prepareStatement.setString(10, type);
-            prepareStatement.setString(11, talk);
-            prepareStatement.setString(12, personnel.getName());
+            prepareStatement.setString(1, bird.getName());
+            prepareStatement.setInt(2, bird.getAge());
+            prepareStatement.setString(3, bird.getGender());
+            prepareStatement.setString(4, bird.getIsSterilize());
+            prepareStatement.setDouble(5, bird.getLength());
+            prepareStatement.setDouble(6, bird.getWeight());
+            prepareStatement.setString(7, bird.getPlace());
+            prepareStatement.setString(8, bird.getStateOfHealth());
+             prepareStatement.setInt(9, bird.getHungerRatio());
+            prepareStatement.setString(10, bird.getType());
+            prepareStatement.setString(11, bird.getIsTalk());
+            prepareStatement.setString(12, bird.getPersonnel().getName());
             
             prepareStatement.executeUpdate();
             
@@ -172,23 +171,22 @@ public class DatabaseOperations {
             Logger.getLogger(DatabaseOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
-    public void addDog(String name, int age,String gender,String sterilize,double length,double weight,String place,String health, int hungerRatio, String type,Personnel personnel){
+    public void addDog(Dog dog){
         String query = "Insert Into dogs (name,age,gender,sterilize,length,weight,place,health,hungerRatio,type,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
-            prepareStatement.setString(1, name);
-            prepareStatement.setInt(2, age);
-            prepareStatement.setString(3, gender);
-            prepareStatement.setString(4, sterilize);
-            prepareStatement.setDouble(5, length);
-            prepareStatement.setDouble(6, weight);
-            prepareStatement.setString(7, place);
-            prepareStatement.setString(8, health);
-            prepareStatement.setInt(9, hungerRatio);
-            prepareStatement.setString(10, type);
-            prepareStatement.setString(11, personnel.getName());
+            prepareStatement.setString(1, dog.getName());
+            prepareStatement.setInt(2, dog.getAge());
+            prepareStatement.setString(3, dog.getGender());
+            prepareStatement.setString(4, dog.getIsSterilize());
+            prepareStatement.setDouble(5, dog.getLength());
+            prepareStatement.setDouble(6, dog.getWeight());
+            prepareStatement.setString(7, dog.getPlace());
+            prepareStatement.setString(8, dog.getStateOfHealth());
+            prepareStatement.setInt(9, dog.getHungerRatio());
+            prepareStatement.setString(10, dog.getType());
+            prepareStatement.setString(11, dog.getPersonnel().getName());
             
             prepareStatement.executeUpdate();
             

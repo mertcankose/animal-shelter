@@ -2042,17 +2042,20 @@ public class ShelterGui extends javax.swing.JFrame {
             }else{
                 isTalk = "No";
             }
-            Cat kedi = new Cat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel);
+            
             if (addScreenTypeCat.isSelected()) {
-                databaseOperations.addCat(kedi);
-                JOptionPane.showMessageDialog(this, "Our" +" "+"cat" + kedi.toString());
+                Cat cat = new Cat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel);
+                databaseOperations.addCat(cat);
+                JOptionPane.showMessageDialog(this, "Our" +" "+"cat" + cat.toString());
             }
             if (addScreenTypeBird.isSelected()) {
-                databaseOperations.addBird(name, age, gender, sterilize, length, weight, place, health, 10,birdType, isTalk, personnel);
+                Bird bird = new Bird(name, age, gender, sterilize, length, weight, place, health, 10,birdType, isTalk, personnel);
+                databaseOperations.addBird(bird);
                 JOptionPane.showMessageDialog(this, "Our " + "bird" + " " + name + " " + "succefully added");    
             }
             if (addScreenTypeDog.isSelected()) {
-                databaseOperations.addDog(name, age, gender, sterilize, length, weight, place, health,10, dogType, personnel);
+                Dog dog = new Dog(name, age, gender, sterilize, length, weight, place, health,10, dogType, personnel);
+                databaseOperations.addDog(dog);
                 JOptionPane.showMessageDialog(this, "Our " + "dog" + " " + name + " " + "succefully added");
             }
             showTable();
