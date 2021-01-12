@@ -1,7 +1,7 @@
 
 package animalshelter;
 
-public abstract class Animal implements IOzellik {
+public abstract class Animal implements IAnimal {
     private int id;
     private String name;
     private int age;

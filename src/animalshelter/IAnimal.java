@@ -1,7 +1,7 @@
 
 package animalshelter;
 
-public interface IOzellik {
+public interface IAnimal {
      int dogAverageLifeTime = 11;
      int catAverageLifeTime = 9;
      int birdAverageLifeTime = 8;
