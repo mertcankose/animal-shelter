@@ -89,11 +89,11 @@ public class ShelterGui extends javax.swing.JFrame {
 
     public void customCursor() {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Image img = toolkit.getImage("icon.png");
+        //Image img = toolkit.getImage("icon.png");
         Point point = new Point(0, 0);
-        Cursor cursor = toolkit.createCustomCursor(img, point, "icon");
+        //Cursor cursor = toolkit.createCustomCursor(img, point, "icon");
 
-        setCursor(cursor);
+        //setCursor(cursor);
     }
 
     public void switchPanel(JPanel panel) {
@@ -357,6 +357,7 @@ public class ShelterGui extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/github2.png"))); // NOI18N
         jButton1.setText("Github");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

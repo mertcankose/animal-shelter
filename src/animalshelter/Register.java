@@ -11,6 +11,7 @@ public class Register extends javax.swing.JFrame {
     public Register() {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setTitle("Animal Shelter Management System © 2021");
     }
 
     /**
