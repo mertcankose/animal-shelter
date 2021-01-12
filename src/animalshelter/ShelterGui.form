@@ -1458,7 +1458,7 @@
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
                                 <Column editable="false" title="Type" type="java.lang.Object"/>
                                 <Column editable="false" title="IsTalk" type="java.lang.Object"/>
-                                <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
+                                <Column editable="false" title="Hunger Limit" type="java.lang.Object"/>
                                 <Column editable="true" title="Personnel" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -1578,7 +1578,7 @@
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
                                 <Column editable="false" title="IsAgressive" type="java.lang.Object"/>
-                                <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
+                                <Column editable="false" title="Hunger Limit" type="java.lang.Object"/>
                                 <Column editable="false" title="Personnel" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -1688,7 +1688,7 @@
                                 <Column editable="false" title="Place" type="java.lang.Object"/>
                                 <Column editable="false" title="Health" type="java.lang.Object"/>
                                 <Column editable="false" title="Type" type="java.lang.Object"/>
-                                <Column editable="false" title="Hunger Ratio" type="java.lang.Object"/>
+                                <Column editable="false" title="Hunger Limit" type="java.lang.Object"/>
                                 <Column editable="false" title="Personnel" type="java.lang.Object"/>
                               </Table>
                             </Property>
@@ -2347,7 +2347,7 @@
                           </Events>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="790" y="130" width="130" height="34"/>
+                              <AbsoluteConstraints x="720" y="130" width="130" height="30"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -2490,6 +2490,19 @@
                             </DimensionLayout>
                           </Layout>
                         </Container>
+                        <Component class="javax.swing.JButton" name="giveFoodButton">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="GET FOOD AMOUNT"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="giveFoodButtonActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="860" y="130" width="130" height="30"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>

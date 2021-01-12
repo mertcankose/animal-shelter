@@ -8,20 +8,25 @@ public class Bird extends Animal {
 
     private String type;
     private String isTalk;
-    private int hungerRatio = birdHungerLimit; //kg
+    private int hungerRatio = animalHungerRatioLimit; //kg
 
     public Bird(int id, String name, int age, String gender, String isSterilize, double length, double weight, String place, String health, String type, String isTalk, String personnel) {
         super(id, name, age, gender, isSterilize, length, weight, place, health, personnel);
         this.type = type;
         this.isTalk = isTalk;
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS);
+    }
+    
+    public Bird(String name, int age, String gender, String sterilize, double length, double weight, String place, String health, int hungerRatio, String type, String isTalk, Personnel personnel) {
+        super(name, age, gender, sterilize, length, weight, place, health, personnel);
+        this.type = type;
+        this.isTalk = isTalk;
+        this.hungerRatio = hungerRatio;
     }
 
     public Bird(String name, int age) {
         super(name, age);
     }
-
+    
     public String getType() {
         return type;
     }
@@ -30,8 +35,7 @@ public class Bird extends Animal {
         this.type = type;
     }
 
-
-    public String isIsTalk() {
+    public String getIsTalk() {
         return isTalk;
     }
 
@@ -47,12 +51,6 @@ public class Bird extends Animal {
         this.hungerRatio = hungerRatio;
     }
 
-    Runnable decraseHungerRatio = new Runnable() {
-        public void run() {
-            hungerRatio--;
-        }
-    };
-
     @Override
     public int findRemainingLifeTime() {
         int time = (int) (birdAverageLifeTime - this.getAge());
@@ -64,9 +62,12 @@ public class Bird extends Animal {
     }
 
     @Override
-    public int giveFood() {
-        hungerRatio++;
-        return hungerRatio;
+    public int learnFoodAmount() {
+        int amount = (int) (birdAverageLifeTime - this.getAge());
+        if (amount < 0) {
+            return 0;
+        } else {
+            return amount;
+        }
     }
-
 }

@@ -124,22 +124,22 @@ public class DatabaseOperations {
         }
     }
         
-    public void addCat(String name, int age,String gender,String sterilize,double length,double weight,String place,String health, int hungerRatio, String agressive,Personnel personnel){
+    public void addCat(Cat cat){
         String query = "Insert Into cats (name,age,gender,sterilize,length,weight,place,health,hungerRatio,agressive,personnel) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
         
         try {
             prepareStatement = con.prepareStatement(query);
-            prepareStatement.setString(1, name);
-            prepareStatement.setInt(2, age);
-            prepareStatement.setString(3, gender);
-            prepareStatement.setString(4, sterilize);
-            prepareStatement.setDouble(5, length);
-            prepareStatement.setDouble(6, weight);
-            prepareStatement.setString(7, place);
-            prepareStatement.setString(8, health);
-             prepareStatement.setInt(9, hungerRatio);
-            prepareStatement.setString(10, agressive);
-            prepareStatement.setString(11, personnel.getName());
+            prepareStatement.setString(1, cat.getName());
+            prepareStatement.setInt(2, cat.getAge());
+            prepareStatement.setString(3, cat.getGender());
+            prepareStatement.setString(4, cat.getIsSterilize());
+            prepareStatement.setDouble(5, cat.getLength());
+            prepareStatement.setDouble(6, cat.getWeight());
+            prepareStatement.setString(7, cat.getPlace());
+            prepareStatement.setString(8, cat.getStateOfHealth());
+             prepareStatement.setInt(9, cat.getHungerRatio());
+            prepareStatement.setString(10, cat.getIsAgressive());
+            prepareStatement.setString(11, cat.getPersonnel().getName());
             //System.out.println("databasee yollanacak: " + personnel.getName());
             prepareStatement.executeUpdate();
             

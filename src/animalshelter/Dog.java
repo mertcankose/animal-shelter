@@ -9,19 +9,23 @@ import javax.swing.Timer;
 
 public class Dog extends Animal {
     private String type;
-    private int hungerRatio = dogHungerLimit; 
+    private int hungerRatio = animalHungerRatioLimit; 
 
     public Dog(int id,String name, int age, String gender, String isSterilize, double length, double weight, String place, String health,String type,String personnel) {
         super(id,name, age, gender, isSterilize, length, weight, place, health,personnel);
+        this.type = type; 
+    }
+    
+    public Dog(String name, int age, String gender, String sterilize, double length, double weight, String place, String health, int hungerRatio, String type, Personnel personnel) {
+        super(name, age, gender, sterilize, length, weight, place, health,personnel);
         this.type = type;
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        executor.scheduleAtFixedRate(decraseHungerRatio, 0, 3, TimeUnit.SECONDS); 
+        this.hungerRatio = hungerRatio;
     }
 
     public Dog(String name, int age) {
         super(name,age);
     }
-
+    
     public String getType() {
         return type;
     }
@@ -39,13 +43,6 @@ public class Dog extends Animal {
         this.hungerRatio = hungerRatio;
     }
     
-    
-    
-    Runnable decraseHungerRatio = new Runnable() {
-    public void run() {
-        hungerRatio--;
-    }
-    };
 
     @Override
     public int findRemainingLifeTime() {
@@ -58,10 +55,12 @@ public class Dog extends Animal {
     }
 
     @Override
-    public int giveFood() {
-       hungerRatio++;
-        return hungerRatio;
+    public int learnFoodAmount() {
+        int amount = (int) (dogAverageLifeTime - this.getAge());
+        if (amount < 0) {
+            return 0;
+        } else {
+            return amount;
+        }
     }
-  
-
 }

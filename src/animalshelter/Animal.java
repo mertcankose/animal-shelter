@@ -14,6 +14,7 @@ public abstract class Animal implements IOzellik {
     private Personnel personnel;
     private String personnelName;
     
+    //to get animals from database
     public Animal(int id,String name, int age, String gender, String isSterilize, double length, double weight, String place, String stateOfHealth,String personnelName) {
         this.id = id;
         this.name = name;
@@ -27,12 +28,26 @@ public abstract class Animal implements IOzellik {
         this.personnelName = personnelName;
     }
     
+    //to add animals to the database
+    public Animal(String name, int age, String gender, String isSterilize, double length, double weight, String place, String stateOfHealth,Personnel personnel){
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.isSterilize = isSterilize;
+        this.length = length;
+        this.weight = weight;
+        this.place = place;
+        this.stateOfHealth = stateOfHealth;
+        this.personnel = personnel;
+    }
+    
+    //to find animal life time and food amount
     public Animal(String name,int age){
         this.name = name;
         this.age = age;        
     }
     
-    public abstract int giveFood();
+    public abstract int learnFoodAmount();
 
     public int getId() {
         return id;
@@ -66,7 +81,7 @@ public abstract class Animal implements IOzellik {
         this.gender = gender;
     }
 
-    public String isIsSterilize() {
+    public String getIsSterilize() {
         return isSterilize;
     }
 
@@ -126,7 +141,5 @@ public abstract class Animal implements IOzellik {
     public String toString() {
         return "Animal{" + "id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", isSterilize=" + isSterilize + ", length=" + length + ", weight=" + weight + ", place=" + place + ", stateOfHealth=" + stateOfHealth + ", personnel=" + personnel + ", personnelName=" + personnelName + '}';
     }
-
-    
 }
 

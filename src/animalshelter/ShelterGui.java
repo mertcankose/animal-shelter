@@ -243,6 +243,7 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton = new javax.swing.JButton();
         updateCatButton = new javax.swing.JButton();
         jPanel8 = new jPanelGradient2();
+        giveFoodButton = new javax.swing.JButton();
         AboutScreen = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel61 = new javax.swing.JLabel();
@@ -875,7 +876,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "Type", "IsTalk", "Hunger Ratio", "Personnel"
+                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "Type", "IsTalk", "Hunger Limit", "Personnel"
             }
         ) {
             Class[] types = new Class [] {
@@ -911,7 +912,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "IsAgressive", "Hunger Ratio", "Personnel"
+                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "IsAgressive", "Hunger Limit", "Personnel"
             }
         ) {
             Class[] types = new Class [] {
@@ -945,7 +946,7 @@ public class ShelterGui extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "Type", "Hunger Ratio", "Personnel"
+                "Id", "Name", "Age", "Gender", "IsSterilize", "Length", "Weight", "Place", "Health", "Type", "Hunger Limit", "Personnel"
             }
         ) {
             Class[] types = new Class [] {
@@ -1225,7 +1226,7 @@ public class ShelterGui extends javax.swing.JFrame {
                 findLifeTimeButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(findLifeTimeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, 130, 34));
+        jPanel2.add(findLifeTimeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 130, 30));
 
         animalLifeTimeText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         animalLifeTimeText.setForeground(new java.awt.Color(255, 0, 0));
@@ -1298,6 +1299,14 @@ public class ShelterGui extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 140, -1));
+
+        giveFoodButton.setText("GET FOOD AMOUNT");
+        giveFoodButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giveFoodButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(giveFoodButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 130, 130, 30));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1649,19 +1658,19 @@ public class ShelterGui extends javax.swing.JFrame {
 
         if (SystemAnimal.dogsArrayList != null) {
             for (Dog dog : SystemAnimal.dogsArrayList) {
-                Object[] addedDog = {dog.getId(), dog.getName(), dog.getAge(), dog.getGender(), dog.isIsSterilize(), dog.getLength(), dog.getWeight(), dog.getPlace(), dog.getStateOfHealth(), dog.getType(), dog.getHungerRatio(), dog.getPersonnelName()};
+                Object[] addedDog = {dog.getId(), dog.getName(), dog.getAge(), dog.getGender(), dog.getIsSterilize(), dog.getLength(), dog.getWeight(), dog.getPlace(), dog.getStateOfHealth(), dog.getType(), dog.getHungerRatio(), dog.getPersonnelName()};
                 modelDog.addRow(addedDog);
             }
         }
         if (SystemAnimal.catsArrayList != null) {
             for (Cat cat : SystemAnimal.catsArrayList) {
-                Object[] addedCat = {cat.getId(), cat.getName(), cat.getAge(), cat.getGender(), cat.isIsSterilize(), cat.getLength(), cat.getWeight(), cat.getPlace(), cat.getStateOfHealth(), cat.isIsAgressive(), cat.getHungerRatio(), cat.getPersonnelName()};
+                Object[] addedCat = {cat.getId(), cat.getName(), cat.getAge(), cat.getGender(), cat.getIsSterilize(), cat.getLength(), cat.getWeight(), cat.getPlace(), cat.getStateOfHealth(), cat.getIsAgressive(), cat.getHungerRatio(), cat.getPersonnelName()};
                 modelCat.addRow(addedCat);
             }
         }
         if (SystemAnimal.birdsArrayList != null) {
             for (Bird bird : SystemAnimal.birdsArrayList) {
-                Object[] addedDog = {bird.getId(), bird.getName(), bird.getAge(), bird.getGender(), bird.isIsSterilize(), bird.getLength(), bird.getWeight(), bird.getPlace(), bird.getStateOfHealth(), bird.getType(), bird.isIsTalk(), bird.getHungerRatio(), bird.getPersonnelName()};
+                Object[] addedDog = {bird.getId(), bird.getName(), bird.getAge(), bird.getGender(), bird.getIsSterilize(), bird.getLength(), bird.getWeight(), bird.getPlace(), bird.getStateOfHealth(), bird.getType(), bird.getIsTalk(), bird.getHungerRatio(), bird.getPersonnelName()};
                 modelBird.addRow(addedDog);
             }
         }
@@ -1769,6 +1778,9 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton.setVisible(false);
         deleteDogButton.setVisible(true);
         deleteBirdButton.setVisible(false);
+        
+        //empty
+        animalLifeTimeText.setText("");
 
         int selectedRow = displayDogTable.getSelectedRow();
 
@@ -1793,6 +1805,7 @@ public class ShelterGui extends javax.swing.JFrame {
         displayAnimalLengthInput.setText(modelDog.getValueAt(selectedRow, 5).toString());
         displayAnimalWeightInput.setText(modelDog.getValueAt(selectedRow, 6).toString());
         displayAnimalPlaceCombo.setSelectedItem(modelDog.getValueAt(selectedRow, 7).toString());
+        
 
         String type = modelDog.getValueAt(selectedRow, 9).toString();
         displayStrainDog.setText(type);
@@ -1818,6 +1831,9 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton.setVisible(false);
         deleteDogButton.setVisible(false);
         deleteBirdButton.setVisible(true);
+        
+        //empty
+        animalLifeTimeText.setText("");
         
         int selectedRow = displayBirdTable.getSelectedRow();
 
@@ -1848,6 +1864,7 @@ public class ShelterGui extends javax.swing.JFrame {
         
         String isTalk = modelBird.getValueAt(selectedRow, 10).toString();
 
+        
         if (isTalk.equals("Yes")) {
             displayIsTalkBirdYes.setSelected(true);
         } else if (isTalk.equals("No")) {
@@ -1876,6 +1893,9 @@ public class ShelterGui extends javax.swing.JFrame {
         deleteCatButton.setVisible(true);
         deleteDogButton.setVisible(false);
         deleteBirdButton.setVisible(false);
+        
+        //empty
+        animalLifeTimeText.setText("");
 
         int selectedRow = displayCatTable.getSelectedRow();        
         
@@ -1896,6 +1916,7 @@ public class ShelterGui extends javax.swing.JFrame {
         } else if (sterilize.equals("No")) {
             displayAnimalSterilizeNo.setSelected(true);
         }
+        
 
         displayAnimalLengthInput.setText(modelCat.getValueAt(selectedRow, 5).toString());
         displayAnimalWeightInput.setText(modelCat.getValueAt(selectedRow, 6).toString());
@@ -2022,7 +2043,7 @@ public class ShelterGui extends javax.swing.JFrame {
             }
 
             if (addScreenTypeCat.isSelected()) {
-                databaseOperations.addCat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel);
+                databaseOperations.addCat(new Cat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel));
                 JOptionPane.showMessageDialog(this, "Our " + "cat" + " " + name + " " + "succefully added");
             }
             if (addScreenTypeBird.isSelected()) {
@@ -2379,6 +2400,43 @@ public class ShelterGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_animalAgeActionPerformed
 
+    private void giveFoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveFoodButtonActionPerformed
+ 
+        animalLifeTimeText.setText("");
+        
+        int selectedRowCat = displayCatTable.getSelectedRow();
+        int selectedRowDog = displayDogTable.getSelectedRow();
+        int selectedRowBird = displayBirdTable.getSelectedRow();
+        
+        //int hungerRatioCat = Integer.parseInt( modelCat.getValueAt(selectedRowCat,10).toString());
+        //int hungerRatioBird = Integer.parseInt( modelBird.getValueAt(selectedRowCat,11).toString());
+        //int hungerRatioDog  = Integer.parseInt( modelDog.getValueAt(selectedRowCat,10).toString());
+  
+        
+        String name = displayAnimalNameInput.getText();
+        int age = Integer.parseInt(displayAnimalAgeInput.getText());
+        
+        if(selectedRowCat == -1 && selectedRowDog == -1 && selectedRowBird == -1){
+            animalLifeTimeText.setText("Please select an animal!");
+        }else{
+            if(selectedRowCat != -1){
+                Cat cat = new Cat(name,age);
+                int hungerRatio = cat.learnFoodAmount();
+                animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
+            }
+            if(selectedRowDog != -1){
+               Dog dog = new Dog(name,age);
+               int hungerRatio = dog.learnFoodAmount();
+               animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
+            }
+            if(selectedRowBird != -1){
+               Bird bird = new Bird(name,age);
+               int hungerRatio = bird.learnFoodAmount();
+               animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
+            }
+        } 
+    }//GEN-LAST:event_giveFoodButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2471,6 +2529,7 @@ public class ShelterGui extends javax.swing.JFrame {
     private javax.swing.JRadioButton genderFemale;
     private javax.swing.JRadioButton genderMale;
     private javax.swing.JLabel github;
+    private javax.swing.JButton giveFoodButton;
     private javax.swing.JLabel healthText;
     private javax.swing.JLabel healthUpdateText;
     private javax.swing.JRadioButton isAgressiveCatNo;
