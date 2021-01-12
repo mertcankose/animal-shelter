@@ -1,11 +1,14 @@
-Name Surname:Kamil Birkan Tonkal
-ID:18050111060
+========================
+ANIMAL SHELTER
+========================
 
-Name Surname:Mertcan Köse
-ID:18050111061
+GROUP NUMBER: G-16
 
-Name Surname:Feyza Decdeli
-ID:18050111062
+18050111061 - Mertcan Köse
+18050111060 - Kamil Birkan Tonkal
+18050111062 - Feyza Decdeli
+18050121001 - Oğuzhan Baş
 
-Name Surname:Oğuzhan Baş
-ID:18050121001
+
+GITHUB
+https://github.com/mertcankose/Animal-Shelter
