@@ -139,7 +139,7 @@ public abstract class Animal implements IAnimal {
 
     @Override
     public String toString() {
-        return "Animal{" + "id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", isSterilize=" + isSterilize + ", length=" + length + ", weight=" + weight + ", place=" + place + ", stateOfHealth=" + stateOfHealth + ", personnel=" + personnel + ", personnelName=" + personnelName + '}';
+        return name + " " + "succesfully added";
     }
 }
 

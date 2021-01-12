@@ -47,6 +47,9 @@ public class Cat extends Animal {
         }
     }
 
+    
+    
+
     @Override
     public int learnFoodAmount() {
         int amount = (int) (catAverageLifeTime - this.getAge());

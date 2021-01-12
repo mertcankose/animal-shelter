@@ -2042,10 +2042,10 @@ public class ShelterGui extends javax.swing.JFrame {
             }else{
                 isTalk = "No";
             }
-
+            Cat kedi = new Cat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel);
             if (addScreenTypeCat.isSelected()) {
-                databaseOperations.addCat(new Cat(name, age, gender, sterilize, length, weight, place, health,10, agressive, personnel));
-                JOptionPane.showMessageDialog(this, "Our " + "cat" + " " + name + " " + "succefully added");
+                databaseOperations.addCat(kedi);
+                JOptionPane.showMessageDialog(this, "Our" +" "+"cat" + kedi.toString());
             }
             if (addScreenTypeBird.isSelected()) {
                 databaseOperations.addBird(name, age, gender, sterilize, length, weight, place, health, 10,birdType, isTalk, personnel);

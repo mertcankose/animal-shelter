@@ -53,7 +53,7 @@ public class Dog extends Animal {
             return time;
         }
     }
-
+    
     @Override
     public int learnFoodAmount() {
         int amount = (int) (dogAverageLifeTime - this.getAge());
