@@ -22,6 +22,28 @@ Or Contributors/People
 ![Product Name Screen Shot][product-screenshot1]
 
 
+## 🌟 ANIMAL SHELTER SYSTEM IMAGES
+
+**REGISTER - LOGIN**
+![Product Name Screen Shot][product-screenshot2]
+![Product Name Screen Shot][product-screenshot3]
+
+**HOME**
+![Product Name Screen Shot][product-screenshot4]
+
+**ADD ANIMAL**
+![Product Name Screen Shot][product-screenshot5]
+![Product Name Screen Shot][product-screenshot6]
+![Product Name Screen Shot][product-screenshot7]
+
+**DISPLAY ANIMAL**
+![Product Name Screen Shot][product-screenshot8]
+![Product Name Screen Shot][product-screenshot9]
+
+**ABOUT**
+![Product Name Screen Shot][product-screenshot10]
+
+
 
 
 
@@ -30,4 +52,13 @@ Or Contributors/People
 <!-- MARKDOWN & IMAGES -->
 
 [product-screenshot1]: src/Images/umlDiagram.png
+[product-screenshot2]: src/Images/register.png
+[product-screenshot3]: src/Images/login.png
+[product-screenshot4]: src/Images/homescreen.png
+[product-screenshot5]: src/Images/add1.png
+[product-screenshot6]: src/Images/add2.png
+[product-screenshot7]: src/Images/add3.png
+[product-screenshot8]: src/Images/display1.png
+[product-screenshot9]: src/Images/display2.png
+[product-screenshot10]: src/Images/aboutscreen.png
 
