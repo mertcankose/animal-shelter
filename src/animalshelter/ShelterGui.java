@@ -19,7 +19,7 @@ public class ShelterGui extends javax.swing.JFrame {
     DefaultTableModel modelCat;
     DefaultTableModel modelBird;
     DefaultTableModel modelDog;
-    
+    Animal anml;
     DatabaseOperations databaseOperations = new DatabaseOperations();
     
     Personnel personnel;
@@ -2419,23 +2419,26 @@ public class ShelterGui extends javax.swing.JFrame {
         
         String name = displayAnimalNameInput.getText();
         int age = Integer.parseInt(displayAnimalAgeInput.getText());
-        
+        Animal anml;
+        anml = new Cat(name,age);
         if(selectedRowCat == -1 && selectedRowDog == -1 && selectedRowBird == -1){
             animalLifeTimeText.setText("Please select an animal!");
         }else{
             if(selectedRowCat != -1){
-                Cat cat = new Cat(name,age);
-                int hungerRatio = cat.learnFoodAmount();
+               
+                anml = new Cat(name,age);
+                int hungerRatio = anml.learnFoodAmount();
                 animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
             }
             if(selectedRowDog != -1){
-               Dog dog = new Dog(name,age);
-               int hungerRatio = dog.learnFoodAmount();
+               anml = new Dog(name,age);
+               
+               int hungerRatio = anml.learnFoodAmount();
                animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
             }
             if(selectedRowBird != -1){
-               Bird bird = new Bird(name,age);
-               int hungerRatio = bird.learnFoodAmount();
+               anml = new Dog(name,age);
+               int hungerRatio = anml.learnFoodAmount();
                animalLifeTimeText.setText("Maximum amount it can eat: " +  hungerRatio);
             }
         } 
